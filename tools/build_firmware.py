@@ -62,18 +62,18 @@ word(0xe8,start+4,end,'Payload logical end')
 word(0x308,0x04000000+start,0x04000000+end-4,'Startup boundary')
 word(0xdec,0x04000000+start,0x04000000+end-4,'Runtime boundary')
 candidate[start:end]=code+bytes.fromhex('55aa55aa')
-(OUT/'osos-reconnect-v2.bin').write_bytes(candidate)
+(OUT/'osos-reconnect-v3.bin').write_bytes(candidate)
 report=dict(status='LOCAL BUILD; NOT INSTALLED',input_sha256=sha(original),
     output_sha256=sha(candidate),image_bytes=len(candidate),payload_offset=hex(start),payload_bytes=len(code),
     symbols={n:hex(start+v) for n,v in offsets.items()},changes=changes,
     changed_os_sectors=[hex(i) for i in range(0,len(original),2048) if original[i:i+2048]!=candidate[i:i+2048]],
     additive_checksum=sum(candidate)&0xffffffff,device_access=False,physical_charging_fixed=False,
     allocation_bytes=192,poll_interval_ms=250,confirmation_clock_ticks=400,nominal_step_response_ms=[500,750],startup_settle_ms=3000,
-    legacy_gradual_path_preserved=False,stale_after_clock_ticks=2000,rise_counts=32,reconnect_min_rise_counts=16,reconnect_window_clock_ticks=10000,reconnect_prior_high_tolerance_counts=4,rise_window_ticks=3000,pre_rise_reference_held=True,positive_noise_does_not_raise_reference=True,fall_counts=16,normal_native_update_clock_ticks=30000,
+    legacy_gradual_path_preserved=False,stale_after_clock_ticks=2000,rise_counts=32,reconnect_min_rise_counts=12,reconnect_retains_prior_peak=True,reconnect_window_clock_ticks=10000,reconnect_prior_high_tolerance_counts=4,rise_window_ticks=3000,pre_rise_reference_held=True,positive_noise_does_not_raise_reference=True,fall_counts=16,normal_native_update_clock_ticks=30000,
     fresh_native_battery_reads=True,charger_control_changes=False,cpu_clock_changes=False,
     storage_writes_at_runtime=False,direct_usb_presence=False,build_command=command,
     limitations=['Voltage changes can result from load changes as well as charging.',
-     'Recent same-load rise/fall pairs allow a 16-count return near the previous high for about ten seconds; this can also match a load recovery.',
+     'Recent same-load rise/fall pairs allow a 12-count return near the previous high for about ten seconds; this can also match a load recovery.',
      'Gradual-rise fallback removed; boot, flat voltage and simultaneous backlight changes can prevent detection. No delayed fallback is available.',
      'An unplug without a sufficient voltage fall cannot be distinguished from continued charging.',
      'Polling adds up to four battery reads per second; battery-runtime cost is unmeasured.',

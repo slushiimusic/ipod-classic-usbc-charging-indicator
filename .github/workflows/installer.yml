@@ -1,0 +1,26 @@
+name: Installer checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  portable:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check firmware planning, recovery and host guards without hardware
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Package standalone launchers
+        run: python tools/package_release.py
+      - name: Check extracted macOS launcher without device access
+        if: runner.os == 'macOS'
+        run: bash build/release/Install-iPod-USB-C.command --self-test
+      - name: Check extracted Windows launcher without device access
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: call build\release\Install-iPod-USB-C.cmd --self-test

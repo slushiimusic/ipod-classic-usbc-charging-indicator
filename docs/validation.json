@@ -1,14 +1,14 @@
 {
-  "version": "reconnect-v2",
-  "firmware_sha256": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+  "version": "reconnect-v3",
+  "firmware_sha256": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
   "local_checks": {
     "arm_paths": 59,
     "repeated_cycle_cases": 40,
     "gradual_rise_cases": 73,
     "widget_cases": 6,
-    "original_device_installer_cases": 47
+    "original_device_installer_cases": 47,
+    "reconnect_tolerance_cases": 53
   },
-  "reported_physical_result": "Repeated USB-C icon changes worked in approximately twenty trials with two reported misses. Waiting about three seconds before reconnecting improved reliability.",
   "full_charge_behavior_verified": false,
   "guaranteed_detection": false,
   "limitations": [
@@ -17,8 +17,13 @@
     "No full-device emulator or exhaustive boot validation is claimed."
   ],
   "public_packaging_checks": {
-    "build_matches_current_firmware": true,
-    "installer_and_recovery_cases": 31,
+    "portable_test_methods": 16,
+    "real_saved_firmware_migration_and_restore_paths": 6,
     "physical_device_access": false
-  }
+  },
+  "physically_validated": false,
+  "previous_version_report": "Repeated USB-C icon changes worked in approximately twenty trials with two reported misses. Waiting about three seconds before reconnecting improved reliability.",
+  "windows_physical_install_validated": false,
+  "sleep_wake_fixed": false,
+  "performance_improvement_measured": false
 }

@@ -1,140 +1,135 @@
 # iPod Classic USB-C Charging Indicator
 
-An experimental charging-icon patch for **iPod Video 5G, Apple firmware 1.3**,
-developed with a Moonlit Classic Connect 2 setup. It keeps Apple's interface
-and displays Apple's charging animation when a recent battery-voltage change
-looks like USB-C charging.
+An experimental charging-icon patch for **iPod Video 5G, exact Apple firmware 1.3**,
+developed with a Moonlit Classic Connect 2 setup. Keeps Apple's interface.
 
-This repository contains the **current working reconnect-v2 version**. In
-physical use, repeated connections worked roughly twenty times with two
-reported misses. Waiting about three seconds before reconnecting improved
-reliability. Detection at full charge remains unverified.
+## Download and run
 
-The patch estimates connection state from voltage. It does not create a
-direct USB-C presence signal or change the charger, charging current, battery
-protection, CPU clock, or battery-level gauge. Load changes can still imitate
-charging, and unchanged voltage can prevent detection.
+**[Download the Mac command file](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-iPod-USB-C.command)** ·
+**[Download the Windows command file](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-iPod-USB-C.cmd)** ·
+**[Download both launchers as a ZIP](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/iPod-USB-C-Launchers.zip)**
+
+Downloads are in **Releases → Assets**. GitHub's **Packages** section is a separate
+package registry and is not used by this project.
+
+Connect the iPod through its **original 30-pin port** and leave the kit USB-C
+cable unplugged. Close applications using the iPod. Run the downloaded file
+from your computer, not from the iPod.
+
+- **Mac:** open Terminal, type `bash ` (including the space), drag
+  `Install-iPod-USB-C.command` into Terminal, then press Return.
+- **Windows 10/11:** install [Python 3](https://www.python.org/downloads/windows/)
+  with its launcher if needed, then double-click `Install-iPod-USB-C.cmd`.
+  Accept the administrator prompt. FAT32-formatted supported iPods only.
+
+Python 3 is required on both platforms. The launcher contains the installer
+and patch data: no repository checkout, compiler, manual device profile, or
+separate firmware download is needed. It reads and verifies your own firmware.
+**Full Apple firmware and personal device backups are not distributed.**
+
+Wait for **verification and safe eject completed**. If an error appears, do
+not treat installation as complete. After safe eject, disconnect 30-pin and
+restart with **Menu + Center** until the Apple logo appears.
+
+Recovery backups and receipts are saved in `iPod-USB-C-Recovery` in your user
+home folder. Keep them. To restore original Apple firmware, use
+[Restore-Apple-Firmware.command](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Restore-Apple-Firmware.command)
+or [Restore-Apple-Firmware.cmd](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Restore-Apple-Firmware.cmd)
+with the same connection and restart steps.
+
+## What changed
+
+This release carries **reconnect-v3**. The previous version could clear its icon
+after a 16-count voltage fall but reject a quick return only 12 counts above
+that partly relaxed baseline, even when it returned within four counts of the
+previous high. The new version accepts that qualified return and retains the
+previous high for the next unplug. Ordinary first connections still require
+a sustained 32-count rise; disconnects require a sustained 16-count fall.
+
+The timer samples every 250 ms and uses a 400-tick confirmation. Qualified
+abrupt changes respond in roughly 500–750 ms in simulated replay. That is
+**not a guaranteed physical cable latency**. The slow, long-term fallback is
+absent. Native 30-pin charging keeps priority.
+
+The previous version was reported to work in about twenty physical trials
+with two misses; waiting roughly three seconds improved reconnect reliability.
+The v3 correction has passed local firmware tests but has **not yet been
+physically validated**. Windows device installation also remains physically
+unverified; automated tests use temporary files and simulated storage.
 
 ## Compatibility
 
-| iPod model | Status in this release |
+| Model | Status |
 | --- | --- |
-| iPod Video 5th generation, exact Apple 1.3 image | Experimental; observed working on the development device with occasional missed reconnects |
-| iPod Classic 6th generation | Not supported yet; separate firmware port required |
-| iPod Classic 7th generation | Not supported yet; separate firmware port required |
+| iPod Video 5G, exact Apple 1.3 image and supported FAT32 layout | Experimental |
+| iPod Classic 6th generation | Unsupported; separate firmware port required |
+| iPod Classic 7th generation | Unsupported; separate firmware port required |
 
-The 6th- and 7th-generation models are requested port targets, not compatible
-with the current download. The firmware-image and device-layout checks stay
-in place. See [compatibility and port requirements](docs/compatibility.md).
-Install and restore scripts currently require macOS; Windows installation
-is not supported.
+The 6th/7th-generation models are requested port targets, not compatible with
+this download. The installer rejects other images and layouts. See
+[compatibility and port requirements](docs/compatibility.md).
 
-## Contents
+## Limits
 
-- `src/charging_indicator.c` — firmware hook source.
-- `tools/build_firmware.py` — constructs the patch from an exact original OS
-  image, with input-hash and patch-location checks.
-- `tools/install.py` — guarded macOS installer and original-firmware restore.
-- `config/device.example.json` — template for a private local device profile.
-- `tests/check_installer.py` — in-memory installation and rollback checks.
-- `docs/validation.json` — recorded validation scope and physical observations.
+This is a voltage-based **display estimate**. It does not control USB-C charging,
+change charging current, add a cable-presence signal, or prove the battery is
+charging. Load changes can imitate a connection; flat voltage, including near
+full charge, can prevent detection. Full-charge behavior remains unverified.
 
-Apple firmware, device backups, device identifiers, and generated binaries are
-not distributed here. Supply your own verified original firmware and backup.
-Other iPod models, firmware versions, and disk layouts are not supported.
+**USB-C wake from sleep is not fixed.** When the processor is asleep, this
+polling hook cannot observe a new voltage edge. No separate kit USB-C wake
+signal has been established. Keeping the iPod awake just to poll would use
+more power and is not part of this patch. An unlit display by itself does not
+establish whether the external charging board is charging the battery.
 
-## Build
+Apple's original CPU policy is preserved. There is no underclock or overclock
+in this download. The additional polling's battery cost is unmeasured. No
+60-fps, menu-speed, song-change, or battery-runtime improvement is claimed.
 
-Python 3, `pyelftools`, and Clang with ARMv4T support are required.
+## Installation safeguards
+
+The launcher requires one external iPod, an exact supported firmware hash,
+2048-byte sectors, the known firmware directory/resource hashes, and a music
+partition starting at 98,703,360 bytes. It locks or unmounts the music volume,
+verifies repeated reads and a fresh recovery backup, rechecks identity, writes
+only changed OS sectors plus the directory checksum last, and verifies the
+entire prefix. Failure triggers restoration and full-prefix verification;
+unverifiable recovery and failed safe eject are errors. Music, resources,
+partition tables and hibernation data are outside the write plan.
+
+## Source and validation
+
+- `src/charging_indicator.c`: reconnect-v3 firmware source.
+- `installer/`: shared planner, transaction/recovery code and macOS/Windows backends.
+- `patches/`: small reversible byte patches and exact firmware hashes.
+- `tools/package_release.py`: reproducible standalone launcher packaging.
+- `tests/test_portable.py`: storage guards, failed-write recovery, synthetic firmware,
+  and native Windows temporary-file I/O; never opens a physical device.
+- `docs/validation.json`: scope of the firmware checks and physical observations.
+- `tools/install.py` and `config/device.example.json`: legacy v0.1.0 macOS workflow.
+
+Run portable checks and build the launchers:
 
 ```sh
-python3 -m venv .venv
-. .venv/bin/activate
-python3 -m pip install -r requirements.txt
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 tools/package_release.py
+bash build/release/Install-iPod-USB-C.command --self-test
+```
+
+The self-test checks extraction and bundled manifests; it does not access hardware.
+
+To rebuild the full candidate privately from your own verified original OS,
+install `requirements.txt` and use Clang with ARMv4T support:
+
+```sh
 python3 tools/build_firmware.py --original local/apple-original.bin
 ```
 
-The original OS image must be 7,561,216 bytes with SHA-256:
+Original OS SHA-256:
+`784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251`
 
-```text
-784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251
-```
+Reference v3 OS SHA-256 (Apple Clang 21.0.0):
+`4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270`
 
-The reference build, produced with Apple Clang 21.0.0, has SHA-256:
-
-```text
-f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a
-```
-
-The installer accepts only that candidate hash. A different compiler may
-produce different bytes; such builds require separate validation and are
-rejected by this installer.
-
-## Local device profile
-
-Copy `config/device.example.json` to `local/device.json`. Fill in the exact
-volume UUID and whole-disk size of your iPod, the SHA-256 of its verified
-original firmware-prefix backup, and the paths to the backup, original OS
-and built candidate. Paths resolve relative to the profile file. The
-`local/` and `build/` directories are ignored by Git.
-
-The supported layout uses 2048-byte sectors, a firmware prefix of 98,703,360
-bytes, and a music partition beginning at that offset. Device identity,
-layout, OS bytes, resource bytes, directory, and checksums must match before
-any firmware write is attempted. The example profile intentionally cannot
-run until completed with actual verified values.
-
-Run the file-only installer checks first:
-
-```sh
-python3 tests/check_installer.py --config local/device.json
-```
-
-These tests simulate storage and identity checks. They do not access an iPod.
-
-## Install or restore on macOS
-
-Connect the iPod through its **original 30-pin port**, leaving USB-C unplugged.
-The installer writes raw firmware sectors, so retain the verified original
-backup and use only the exact supported device and firmware layout.
-
-```sh
-sudo python3 tools/install.py inspect --config local/device.json
-sudo python3 tools/install.py install --config local/device.json
-```
-
-Wait for successful verification and safe ejection in the result. If ejection
-reports an error, keep the device connected until that is resolved. Disconnect
-30-pin and restart with **Menu + Center** until the Apple logo appears.
-
-To restore the exact original OS:
-
-```sh
-sudo python3 tools/install.py restore --config local/device.json
-```
-
-The public installer accepts exact original firmware or this exact candidate.
-It does not migrate older experimental builds. It creates a fresh recovery
-copy before writes, changes only differing OS sectors and the checksum block
-last, verifies the full prefix, and attempts verified rollback after a failed
-write. Music, settings, resources, and hibernation are outside its write plan.
-Safe ejection is never forced. Receipts and fresh backups stay in the local
-profile's output directory.
-
-## Detection behavior
-
-The patch polls battery voltage every 250 ms. Initial detection needs a
-sustained 32-count rise; a sustained 16-count fall clears the estimate. After
-a confirmed fall, a recent same-load return near the previous high can
-recognize a reconnect. Small positive increments no longer move the baseline
-upward and erase a gradual rise. Native 30-pin charging retains priority.
-
-The old slow fallback is absent. Startup settling, sample freshness, load
-changes and failed readings limit stale indications. A qualifying abrupt
-sensor change responds in about 500–750 ms in local replay; this is not a
-guaranteed physical cable latency. The extra polling's battery-runtime cost
-has not been measured.
-
-Recorded firmware checks used simulated sensor inputs and event transport.
-They do not replace physical validation. Full-charge behavior, every playback
-mode, and universal reliability are not established.
+Other compiler output requires separate validation. No complete firmware
+image or private device profile belongs in a public commit or release.

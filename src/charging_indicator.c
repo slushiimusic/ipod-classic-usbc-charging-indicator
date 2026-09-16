@@ -1,4 +1,4 @@
-/* Apple 5G 1.3 edge-based charging-display reconnect ramp prototype.
+/* Apple 5G 1.3 edge-based charging-display reconnect tolerance prototype.
  * No charger controls, persistent files, CPU-clock changes or gauge changes.
  * A sustained voltage step is an estimate, not proof of USB-C presence.
  */
@@ -6,7 +6,7 @@ typedef unsigned int u32;
 typedef unsigned char u8;
 #define INLINE static __attribute__((always_inline)) inline
 #define CALL(a,t) ((t)(a))
-enum { MAGIC=0x4653433a, ALLOCATION=0xc0, RISE=32, FALL=16,
+enum { MAGIC=0x4653433b, ALLOCATION=0xc0, RISE=32, FALL=16, NOISE=4,
        PERIOD=250, FRESH=2000, STARTUP=3000, CONFIRM=400, RECONNECT=10000 };
 struct observer {
     u32 initialized, first, last, base, stable, pending, since, peak, active, load;
@@ -65,21 +65,25 @@ u32 response_step(struct observer *s,u32 raw,u32 t,u32 valid,u32 load) {
      * pending: 0 baseline, 1 rise window, 2 threshold confirmation. */
     if (raw<=s->base || (s->pending && t-s->since>3000)) {
         s->base=raw;s->pending=0;
-    } else if (raw>s->base+4 || s->pending) {
+    } else if (raw>s->base+NOISE || s->pending) {
         /* Ignore tiny positive changes without moving the reference upward.
          * Tracking every +1..4 count increment erased small distributed
          * reconnect rises. The existing three-second rise window still
          * prevents small long-term drift from accumulating without limit. */
         if (!s->pending) { s->pending=1;s->since=t; }
         /* The first edge still needs RISE. Following a confirmed FALL, a
-         * short reconnect may return only FALL counts from a partly relaxed
+         * short reconnect may return FALL-NOISE counts from a partly relaxed
          * baseline. Require return near the prior high, the same load and
          * the same confirmation time. A timeout/gap/error erases the pair. */
-        u32 paired=s->rearm && raw>=s->base+FALL && raw+4>=s->peak;
+        u32 paired=s->rearm && raw>=s->base+FALL-NOISE && raw+NOISE>=s->peak;
         if (raw>=s->base+RISE || paired) {
             if (s->pending!=2) { s->pending=2;s->stable=t; }
             if (t-s->stable>=CONFIRM) {
-                s->active=s->rearm=1;s->pending=0;s->peak=raw;
+                s->active=s->rearm=1;s->pending=0;
+                /* Keep the remembered high within its noise allowance.
+                 * Otherwise a lower accepted return would lower the fall
+                 * reference and prevent the next identical unplug clearing. */
+                if (!paired || raw>s->peak) s->peak=raw;
             }
         } else s->pending=1;
     }
