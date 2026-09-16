@@ -34,7 +34,8 @@ with tempfile.TemporaryDirectory(prefix="ipod-indicator-") as folder:
 raise SystemExit(status)
 '''.replace('DIGEST', digest)
     # No firmware I/O occurs until the extracted Python program runs and validates the iPod.
-    for mode, name in [('install', 'Install-iPod-USB-C'), ('restore', 'Restore-Apple-Firmware')]:
+    for mode, name in [('install', 'Install-iPod-USB-C'), ('restore', 'Restore-Apple-Firmware'),
+                       ('responsive', 'Install-Optional-Screen-Boost')]:
         shell = '''#!/bin/bash
 set -eu
 py="$(command -v python3 || true)"
@@ -78,15 +79,21 @@ exit $result
                + 'if not "%IPOD_OPTION%"=="--self-test" pause\r\n'
                + 'exit /b %IPOD_RESULT%\r\n# PAYLOAD\r\n' + payload.replace('\n', '\r\n'))
         (output / (name + '.cmd')).write_bytes(cmd.encode('ascii'))
-    archive = output / 'iPod-USB-C-Launchers.zip'
-    with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as z:
-        for path in sorted(output.glob('*.command')) + sorted(output.glob('*.cmd')):
+    archives = []
+    groups = [('iPod-USB-C-Launchers.zip', sorted(output.glob('*.command')) + sorted(output.glob('*.cmd'))),
+              ('Install-iPod-USB-C-Mac.zip', [output / 'Install-iPod-USB-C.command']),
+              ('Install-Optional-Screen-Boost-Mac.zip', [output / 'Install-Optional-Screen-Boost.command'])]
+    for name, members in groups:
+        archive = output / name
+        archives.append(archive)
+        with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as z:
+          for path in members:
             info = zipfile.ZipInfo(path.name, (2026, 9, 16, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.create_system = 3
             info.external_attr = (0o100755 if path.suffix == '.command' else 0o100644) << 16
             z.writestr(info, path.read_bytes())
-    paths = sorted(output.glob('*.command')) + sorted(output.glob('*.cmd')) + [archive]
+    paths = sorted(output.glob('*.command')) + sorted(output.glob('*.cmd')) + archives
     (output / 'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name + '\n' for p in paths))
     return paths
 

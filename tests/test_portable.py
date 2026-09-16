@@ -96,7 +96,7 @@ class HostTests(unittest.TestCase):
         self.assertEqual(hosts.select_windows([d]), d)
 
     def test_reject_unsafe_windows_identities(self):
-        changes = [('boot', True), ('system', True), ('bus', 'SATA'), ('style', 'GPT'),
+        changes = [('boot', True), ('system', True), ('bus', 'SATA'), ('style', 'RAW'),
                    ('block', 512), ('unique', ''), ('pnp', 'SCSI\\device'), ('volumes', []),
                    ('partitions', []), ('number', -1)]
         for key, value in changes:
@@ -180,10 +180,11 @@ class FirmwareTests(unittest.TestCase):
         # Generated fixtures, not Apple firmware. Production fingerprints are
         # replaced only inside these tests; real-image checks run privately.
         a = bytes(f.OS_LENGTH)
-        b, c = bytearray(a), bytearray(a)
+        b, c, d = bytearray(a), bytearray(a), bytearray(a)
         b[0x18ad4c:0x18ad50] = b'old!'
         c[0x18ad4c:0x18ad50] = b'new!'
-        cls.images = [a, bytes(b), bytes(c)]
+        d[0x18ad4c:0x18ad50] = b'fast'
+        cls.images = [a, bytes(b), bytes(c), bytes(d)]
         cls.hashes = [f.sha(x) for x in cls.images]
         cls.patches = {h: dict(original_sha256=cls.hashes[0], target_sha256=h,
                               changes=[dict(offset=0x18ad4c, before='00000000', after=image[0x18ad4c:0x18ad50].hex())])
@@ -196,7 +197,7 @@ class FirmwareTests(unittest.TestCase):
         cls.prefix = bytes(prefix)
 
     def constants(self):
-        return patch.multiple(f, STOCK=self.hashes[0], V2=self.hashes[1], V3=self.hashes[2],
+        return patch.multiple(f, STOCK=self.hashes[0], V2=self.hashes[1], V3=self.hashes[2], RESPONSIVE=self.hashes[3],
                               RESOURCE_SHA=f.sha(self.prefix[0x75b000:0xc5b800]),
                               DIRECTORY_SHA=f.sha(bytes(f.BLOCK)))
 
@@ -208,8 +209,8 @@ class FirmwareTests(unittest.TestCase):
 
     def test_all_supported_install_and_restore_paths(self):
         with self.constants():
-            for index in range(3):
-                for mode, target in [('install', 2), ('restore', 0)]:
+            for index in range(4):
+                for mode, target in [('install', 2), ('restore', 0), ('responsive', 3)]:
                     with self.subTest(source=index, mode=mode):
                         plan, expected, original = f.plan_for(self.image_prefix(index), mode, self.patches)
                         self.assertEqual(expected, self.image_prefix(target))

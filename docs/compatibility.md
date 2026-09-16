@@ -2,7 +2,7 @@
 
 | Target | Current patch | Physical validation | Remaining work |
 | --- | --- | --- | --- |
-| iPod Video 5th generation, exact Apple 1.3 OS | Implemented, experimental | Repeated icon changes observed, occasional reconnect misses remain | Improve short reconnects and verify full-charge behavior |
+| iPod Video 5th generation, exact Apple 1.3 OS | Implemented, experimental | Repeated icon changes observed with v2; v3 and optional boost still unverified physically | Verify short reconnects, full-charge behavior and optional boost |
 | iPod Classic 6th generation | Not supported | None for this patch | Separate firmware and installer port |
 | iPod Classic 7th generation | Not supported | None for this patch | Separate firmware and installer port |
 
@@ -45,7 +45,9 @@ No Classic firmware candidate, installation method for this patch, or working
 
 ## Host platforms
 
-The patch runs on the iPod. The current raw-device installer uses macOS disk
-identification and I/O; Windows installation requires a separate host-side
-implementation. A Windows installer would not, by itself, add support for
-additional iPod generations.
+The patch runs on the iPod. The portable installer implements macOS and Windows
+disk identification and I/O. Mac/Windows automated checks pass; the Windows
+checks use native temporary-file I/O and simulated disk/volume identities,
+not a physical iPod. Windows installation on a real iPod remains unverified.
+This host port does not add support for additional iPod generations. Both
+installers require the exact supported 2048-byte-sector FAT32 layout.

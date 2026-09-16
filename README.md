@@ -5,7 +5,7 @@ developed with a Moonlit Classic Connect 2 setup. Keeps Apple's interface.
 
 ## Download and run
 
-**[Download the Mac command file](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-iPod-USB-C.command)** ·
+**[Download for Mac — one command file in a ZIP](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-iPod-USB-C-Mac.zip)** ·
 **[Download the Windows command file](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-iPod-USB-C.cmd)** ·
 **[Download both launchers as a ZIP](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/iPod-USB-C-Launchers.zip)**
 
@@ -16,8 +16,9 @@ Connect the iPod through its **original 30-pin port** and leave the kit USB-C
 cable unplugged. Close applications using the iPod. Run the downloaded file
 from your computer, not from the iPod.
 
-- **Mac:** open Terminal, type `bash ` (including the space), drag
-  `Install-iPod-USB-C.command` into Terminal, then press Return.
+- **Mac:** unzip the Mac download and open `Install-iPod-USB-C.command`.
+  The ZIP preserves its execute permission. You can also drag the extracted
+  command into Terminal and press Return.
 - **Windows 10/11:** install [Python 3](https://www.python.org/downloads/windows/)
   with its launcher if needed, then double-click `Install-iPod-USB-C.cmd`.
   Accept the administrator prompt. FAT32-formatted supported iPods only.
@@ -26,6 +27,12 @@ Python 3 is required on both platforms. The launcher contains the installer
 and patch data: no repository checkout, compiler, manual device profile, or
 separate firmware download is needed. It reads and verifies your own firmware.
 **Full Apple firmware and personal device backups are not distributed.**
+
+The [direct command file](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-iPod-USB-C.command)
+is also available. Browsers can strip execute permission from a direct download;
+if macOS says it cannot execute the file because of access privileges, open
+Terminal, type `bash ` (with a space), drag that file in, and press Return.
+Do not change permissions on a whole folder or disable macOS security checks.
 
 Wait for **verification and safe eject completed**. If an error appears, do
 not treat installation as complete. After safe eject, disconnect 30-pin and
@@ -82,9 +89,29 @@ signal has been established. Keeping the iPod awake just to poll would use
 more power and is not part of this patch. An unlit display by itself does not
 establish whether the external charging board is charging the battery.
 
-Apple's original CPU policy is preserved. There is no underclock or overclock
-in this download. The additional polling's battery cost is unmeasured. No
+The standard installer preserves Apple's original CPU policy. There is no
+underclock or overclock in it. The additional polling's battery cost is unmeasured. No
 60-fps, menu-speed, song-change, or battery-runtime improvement is claimed.
+
+## Optional responsiveness profile
+
+[Mac optional screen boost](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Screen-Boost-Mac.zip) ·
+[Windows optional screen boost](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Screen-Boost.cmd)
+
+This separate installer includes the same reconnect correction and requests
+Apple's existing maximum speed while the backlight circuit is enabled. With
+the saved stock settings, that request is 80 MHz. When the circuit is disabled,
+Apple's normal policy is preserved. It does not change the clock driver,
+write clock registers directly, add a timer, or raise the stock ceiling.
+
+**Experimental: no physical speed or battery improvement has been established.**
+It may help CPU-limited menu work; storage, database and audio-buffering delays
+can remain. Apple's policy already requests maximum speed during storage
+activity. This is not a 60-fps patch and cannot promise zero battery cost.
+It can use more power while the screen is lit and may affect the voltage-based
+charging estimate. Use the standard installer to remove only the boost while
+keeping the reconnect correction, or the restore launcher to remove both.
+See [implementation and validation](docs/responsiveness.md).
 
 ## Installation safeguards
 

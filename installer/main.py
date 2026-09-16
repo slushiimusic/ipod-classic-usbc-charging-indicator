@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 import uuid
-from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V3, plan_for, require, sha, transact
+from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V3, RESPONSIVE, plan_for, require, sha, transact
 from .hosts import MacHost, WindowsHost
 
 
@@ -29,7 +29,8 @@ def run(host, mode, output):
     """Back up before any write handle is opened; receipts stay on the computer."""
     token = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
     receipt = {'mode': mode, 'started': token, 'writes_attempted': False, 'verified': False,
-               'ejected': False, 'original_sha256': STOCK, 'candidate_sha256': V3}
+               'ejected': False, 'original_sha256': STOCK,
+               'candidate_sha256': RESPONSIVE if mode == 'responsive' else V3}
     device = None
     output.mkdir(parents=True, exist_ok=True)
     # Ensure the recovery destination is writable before dismounting the iPod.
@@ -75,7 +76,9 @@ def run(host, mode, output):
             receipt['writes_attempted'] = True
             transact(device, plan, before, expected)
             receipt['verified'] = True
-            receipt['status'] = 'Original Apple OS restored' if mode == 'restore' else 'Quick reconnect correction installed'
+            receipt['status'] = {'restore': 'Original Apple OS restored',
+                                 'responsive': 'Quick reconnect correction and experimental screen-lit boost installed',
+                                 'install': 'Quick reconnect correction installed; original CPU policy active'}[mode]
         device.close()
         device = None
         host.unlock()
@@ -109,14 +112,14 @@ def elevated():
 
 def main():
     p = argparse.ArgumentParser(description='iPod Video 5G Apple 1.3 USB-C indicator installer')
-    p.add_argument('mode', nargs='?', choices=['install', 'restore', 'inspect'], default='install')
+    p.add_argument('mode', nargs='?', choices=['install', 'responsive', 'restore', 'inspect'], default='install')
     p.add_argument('--output', type=Path, default=Path.home() / 'iPod-USB-C-Recovery')
     p.add_argument('--elevated', action='store_true', help=argparse.SUPPRESS)
     p.add_argument('--self-test', action='store_true', help='Validate bundled patch data without opening any device')
     args = p.parse_args()
     if args.self_test:
         from .firmware import manifests
-        require(len(manifests()) == 2, 'Missing patch data')
+        require(len(manifests()) == 3, 'Missing patch data')
         print('Bundled patch data loaded. No device access.')
         return 0
     require(sys.platform in ('darwin', 'win32'), 'Installation requires macOS or Windows')
@@ -135,6 +138,9 @@ def main():
                                 base64.b64encode(script.encode('utf-16-le')).decode('ascii')])
     try:
         print('iPod USB-C indicator — quick reconnect correction')
+        if args.mode == 'responsive':
+            print('Optional screen-lit boost: battery cost and physical speed gains are unmeasured.')
+            print('No 60-fps guarantee. Run the standard installer to remove only this boost.')
         print('Use the original 30-pin connection; leave the kit USB-C cable unplugged.')
         print('Recovery files: ' + str(args.output.resolve()), flush=True)
         run(WindowsHost() if os.name == 'nt' else MacHost(), args.mode, args.output.resolve())
