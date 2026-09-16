@@ -8,10 +8,10 @@ import subprocess
 import sys
 import tempfile
 import uuid
-from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V4, RESPONSIVE, SMOOTH_V2, plan_for, require, sha, transact
+from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V4, RESPONSIVE, SMOOTH_V2, FAST, plan_for, require, sha, transact
 from .hosts import MacHost, WindowsHost
 
-VERSION = '0.3.0'
+VERSION = '0.4.0'
 
 
 def save(path, data):
@@ -32,7 +32,7 @@ def run(host, mode, output):
     token = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
     receipt = {'release_version': VERSION, 'mode': mode, 'started': token, 'writes_attempted': False, 'verified': False,
                'ejected': False, 'original_sha256': STOCK,
-               'candidate_sha256': {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'restore': STOCK}.get(mode, V4)}
+               'candidate_sha256': {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'restore': STOCK}.get(mode, V4)}
     device = None
     output.mkdir(parents=True, exist_ok=True)
     # Ensure the recovery destination is writable before dismounting the iPod.
@@ -80,6 +80,7 @@ def run(host, mode, output):
             receipt['verified'] = True
             receipt['status'] = {'restore': 'Original Apple OS restored',
                                  'responsive': 'Quick reconnect correction and experimental screen-lit boost installed',
+                                 'fast': '150 ms menu slides and screen-on charging correction installed; original CPU policy active',
                                  'smooth': 'Screen-on edge correction and experimental menu pacing installed; original CPU policy active',
                                  'install': 'Reconnect and screen-on edge corrections installed; original CPU policy active'}[mode]
         device.close()
@@ -115,14 +116,14 @@ def elevated():
 
 def main():
     p = argparse.ArgumentParser(description='iPod Video 5G Apple 1.3 USB-C indicator installer')
-    p.add_argument('mode', nargs='?', choices=['install', 'responsive', 'smooth', 'restore', 'inspect'], default='install')
+    p.add_argument('mode', nargs='?', choices=['install', 'responsive', 'smooth', 'fast', 'restore', 'inspect'], default='install')
     p.add_argument('--output', type=Path, default=Path.home() / 'iPod-USB-C-Recovery')
     p.add_argument('--elevated', action='store_true', help=argparse.SUPPRESS)
     p.add_argument('--self-test', action='store_true', help='Validate bundled patch data without opening any device')
     args = p.parse_args()
     if args.self_test:
         from .firmware import manifests
-        require(len(manifests()) == 6, 'Missing patch data')
+        require(len(manifests()) == 7, 'Missing patch data')
         print(f'Installer {VERSION}: bundled patch data loaded. No device access.')
         return 0
     require(sys.platform in ('darwin', 'win32'), 'Installation requires macOS or Windows')
@@ -149,7 +150,11 @@ def main():
             print('Optional smooth menus: same 300 ms slide, a 60 Hz target for cached-image update deadlines.')
             print('Original CPU policy. Actual display rate and battery impact are unmeasured.')
             print('Run this release\'s standard installer to restore original menu timing.')
-        if args.mode in ('install', 'smooth'):
+        if args.mode == 'fast':
+            print('Faster menus: 150 ms slides instead of 300 ms, with the original CPU policy.')
+            print('Same ten ideal timed updates as stock; physical latency and battery impact are unmeasured.')
+            print('Run this release\'s standard installer to restore original menu timing.')
+        if args.mode in ('install', 'smooth', 'fast'):
             print('USB-C wake from deep sleep remains unresolved; the icon is a voltage-based estimate.')
         print('Use the original 30-pin connection; leave the kit USB-C cable unplugged.')
         print('Recovery files: ' + str(args.output.resolve()), flush=True)

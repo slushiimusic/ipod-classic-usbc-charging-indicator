@@ -1,0 +1,97 @@
+{
+  "status": "OFFLINE SHORTER MENU CHECKS PASSED",
+  "candidate_sha256": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+  "transition_cases": [
+    {
+      "direction": 0,
+      "stock_completion_ms": 300,
+      "fast_completion_ms": 150,
+      "stock_updates": 10,
+      "fast_updates": 10
+    },
+    {
+      "direction": 1,
+      "stock_completion_ms": 300,
+      "fast_completion_ms": 150,
+      "stock_updates": 10,
+      "fast_updates": 10
+    }
+  ],
+  "matching_progress_geometry_cases": 204,
+  "reversal_cases": [
+    {
+      "direction": 0,
+      "reversed_at_ms": 0,
+      "completion_ms": 0
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 15,
+      "completion_ms": 30
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 60,
+      "completion_ms": 120
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 135,
+      "completion_ms": 270
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 0,
+      "completion_ms": 0
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 15,
+      "completion_ms": 30
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 60,
+      "completion_ms": 120
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 135,
+      "completion_ms": 270
+    }
+  ],
+  "cancellation_cases": 8,
+  "lag_cases": [
+    {
+      "callback_delay_ms": 1,
+      "updates": 10,
+      "completion_ms": 160
+    },
+    {
+      "callback_delay_ms": 5,
+      "updates": 8,
+      "completion_ms": 160
+    },
+    {
+      "callback_delay_ms": 20,
+      "updates": 5,
+      "completion_ms": 175
+    },
+    {
+      "callback_delay_ms": 75,
+      "updates": 2,
+      "completion_ms": 180
+    }
+  ],
+  "entry_guard_cases": 386,
+  "charging_payload_unchanged": true,
+  "cpu_policy_unchanged": true,
+  "physical_device_access": false,
+  "physical_slide_latency_measured": false,
+  "battery_impact_measured": false,
+  "limitations": [
+    "Clock, scheduling and image copies are simulated; original easing and completion execute.",
+    "The requested 150 ms slide can finish later if real drawing or event delivery is delayed.",
+    "Ideal update count equals stock, but physical battery use is not measured."
+  ]
+}

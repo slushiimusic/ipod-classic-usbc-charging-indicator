@@ -35,7 +35,7 @@ raise SystemExit(status)
 '''.replace('DIGEST', digest)
     # No firmware I/O occurs until the extracted Python program runs and validates the iPod.
     for mode, name in [('install', 'Install-iPod-USB-C'), ('restore', 'Restore-Apple-Firmware'),
-                       ('responsive', 'Install-Optional-Screen-Boost'), ('smooth', 'Install-Optional-Smooth-Menus')]:
+                       ('responsive', 'Install-Optional-Screen-Boost'), ('smooth', 'Install-Optional-Smooth-Menus'), ('fast', 'Install-Faster-Menus')]:
         shell = '''#!/bin/bash
 set -eu
 py="$(command -v python3 || true)"
@@ -83,7 +83,8 @@ exit $result
     groups = [('iPod-USB-C-Launchers.zip', sorted(output.glob('*.command')) + sorted(output.glob('*.cmd'))),
               ('Install-iPod-USB-C-Mac.zip', [output / 'Install-iPod-USB-C.command']),
               ('Install-Optional-Screen-Boost-Mac.zip', [output / 'Install-Optional-Screen-Boost.command']),
-              ('Install-Optional-Smooth-Menus-Mac.zip', [output / 'Install-Optional-Smooth-Menus.command'])]
+              ('Install-Optional-Smooth-Menus-Mac.zip', [output / 'Install-Optional-Smooth-Menus.command']),
+              ('Install-Faster-Menus-Mac.zip', [output / 'Install-Faster-Menus.command'])]
     for name, members in groups:
         archive = output / name
         archives.append(archive)

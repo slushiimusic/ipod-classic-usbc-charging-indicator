@@ -46,6 +46,9 @@ with the same connection and restart steps.
 
 ## What changed
 
+Version **0.4.0** adds the optional [150 ms Faster Menus profile](#faster-menu-slides--new-in-v040).
+The standard charging profile is unchanged from v0.3.0.
+
 Version **0.3.0** adds a narrow screen-on correction to reconnect-v3. A fresh,
 large voltage rise is no longer discarded solely because the backlight turns
 on at the same time. Other observed load changes still reset that reference.
@@ -94,7 +97,25 @@ The standard installer preserves Apple's original CPU policy. There is no
 underclock or overclock in it. The additional polling's battery cost is unmeasured. No
 60-fps, menu-speed, song-change, or battery-runtime improvement is claimed.
 
-## Optional responsiveness profile
+## Optional responsiveness profiles
+
+### Faster menu slides — new in v0.4.0
+
+[Mac faster menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Faster-Menus-Mac.zip) ·
+[Windows faster menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Faster-Menus.cmd)
+
+This profile shortens the horizontal slide from **300 ms to 150 ms**, retaining
+Apple's easing curve and original CPU policy. It requests ten timed updates
+per slide, the same ideal count as stock, using a 15 ms interval. It includes
+v4 charging and replaces the previous smooth-menu helper or CPU boost.
+
+Offline checks show the original slide completing in half the time in both
+directions. **Physical latency, smoothness and battery impact are unmeasured.**
+No background timer or CPU boost is added. It does not fix USB-C wake from
+sleep. See [implementation and checks](docs/fast-menus.md).
+
+Use standard/restore launchers **from v0.4.0 or newer** to remove it. The
+standard download restores original menu timing and retains v4 charging.
 
 ### Smooth menu movement, original transition length
 
@@ -152,13 +173,15 @@ partition tables and hibernation data are outside the write plan.
 
 - `src/charging_indicator_v4.c`: current charging source; v3 source is retained.
 - `src/smooth_menus_v2.c`: optional deadline-based menu timing helper.
+- `src/fast_menus.c`: optional 150 ms menu slide wrapper.
 - `installer/`: shared planner, transaction/recovery code and macOS/Windows backends.
 - `patches/`: small reversible byte patches and exact firmware hashes.
 - `tools/package_release.py`: reproducible standalone launcher packaging.
 - `tests/test_portable.py`: storage guards, failed-write recovery, synthetic firmware,
   and native Windows temporary-file I/O; never opens a physical device.
 - `docs/screen-on-validation.json` and `docs/smooth-v2-validation.json`: current offline checks.
-- `docs/installer-v030-validation.json`: 28 install/restore paths using exact saved images.
+- `docs/fast-menus-validation.json`: shorter-slide firmware checks.
+- `docs/installer-v040-validation.json`: 40 install/restore paths using exact saved images.
 - `docs/validation.json`: historical reconnect-v3 checks.
 - `tools/install.py` and `config/device.example.json`: legacy v0.1.0 macOS workflow.
 
@@ -177,7 +200,7 @@ install `requirements.txt` and use Clang with ARMv4T support:
 
 ```sh
 python3 tools/build_reconnect_v4.py --original local/apple-original.bin
-python3 tools/build_smooth_v2.py --input build/reconnect-v4/osos-reconnect-v4.bin
+python3 tools/build_fast_menus.py --input build/reconnect-v4/osos-reconnect-v4.bin
 ```
 
 Original OS SHA-256:
@@ -186,8 +209,8 @@ Original OS SHA-256:
 Reference v4 OS SHA-256 (Apple Clang 21.0.0):
 `9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8`
 
-Optional smooth-v2 OS SHA-256:
-`c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849`
+Optional Faster Menus OS SHA-256:
+`13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b`
 
 Other compiler output requires separate validation. No complete firmware
 image or private device profile belongs in a public commit or release.
