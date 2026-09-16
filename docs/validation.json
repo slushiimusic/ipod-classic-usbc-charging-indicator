@@ -1,0 +1,24 @@
+{
+  "version": "reconnect-v2",
+  "firmware_sha256": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+  "local_checks": {
+    "arm_paths": 59,
+    "repeated_cycle_cases": 40,
+    "gradual_rise_cases": 73,
+    "widget_cases": 6,
+    "original_device_installer_cases": 47
+  },
+  "reported_physical_result": "Repeated USB-C icon changes worked in approximately twenty trials with two reported misses. Waiting about three seconds before reconnecting improved reliability.",
+  "full_charge_behavior_verified": false,
+  "guaranteed_detection": false,
+  "limitations": [
+    "Sensor inputs and operating-system transport were simulated for local firmware checks.",
+    "The physical result is a user observation, not an instrumented timing measurement.",
+    "No full-device emulator or exhaustive boot validation is claimed."
+  ],
+  "public_packaging_checks": {
+    "build_matches_current_firmware": true,
+    "installer_and_recovery_cases": 31,
+    "physical_device_access": false
+  }
+}

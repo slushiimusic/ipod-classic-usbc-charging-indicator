@@ -1,0 +1,9 @@
+build/
+local/
+*.bin
+*.o
+*.elf
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
