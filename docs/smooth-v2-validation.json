@@ -1,0 +1,125 @@
+{
+  "status": "OFFLINE DEADLINE MENU CHECKS PASSED",
+  "candidate_sha256": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+  "transition_cases": [
+    {
+      "direction": 0,
+      "completion_ms": 300,
+      "timed_updates": 18,
+      "deadlines_ms": [
+        17,
+        34,
+        50,
+        67,
+        84,
+        100,
+        117,
+        134,
+        150,
+        167,
+        184,
+        200,
+        217,
+        234,
+        250,
+        267,
+        284,
+        300
+      ]
+    },
+    {
+      "direction": 1,
+      "completion_ms": 300,
+      "timed_updates": 18,
+      "deadlines_ms": [
+        17,
+        34,
+        50,
+        67,
+        84,
+        100,
+        117,
+        134,
+        150,
+        167,
+        184,
+        200,
+        217,
+        234,
+        250,
+        267,
+        284,
+        300
+      ]
+    }
+  ],
+  "matching_time_geometry_cases": 244,
+  "lag_cases": [
+    {
+      "callback_delay_ms": 1,
+      "updates": 18,
+      "completion_ms": 301
+    },
+    {
+      "callback_delay_ms": 4,
+      "updates": 18,
+      "completion_ms": 304
+    },
+    {
+      "callback_delay_ms": 9,
+      "updates": 18,
+      "completion_ms": 309
+    },
+    {
+      "callback_delay_ms": 20,
+      "updates": 9,
+      "completion_ms": 304
+    },
+    {
+      "callback_delay_ms": 75,
+      "updates": 4,
+      "completion_ms": 342
+    }
+  ],
+  "reversal_cases": [
+    {
+      "direction": 0,
+      "reversed_at_ms": 40,
+      "completion_ms": 80
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 140,
+      "completion_ms": 280
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 260,
+      "completion_ms": 520
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 40,
+      "completion_ms": 80
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 140,
+      "completion_ms": 280
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 260,
+      "completion_ms": 520
+    }
+  ],
+  "cancellation_cases": 8,
+  "scope_guard_cases": 485,
+  "physical_device_access": false,
+  "physical_fps_measured": false,
+  "battery_impact_measured": false,
+  "limitations": [
+    "Clock, scheduling, external UI and image copies simulated; original start, easing and completion executed.",
+    "A 60 Hz requested deadline grid is not proof of 60 displayed frames per second."
+  ]
+}

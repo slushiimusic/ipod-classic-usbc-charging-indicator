@@ -1,0 +1,221 @@
+{
+  "status": "SCREEN-ON EDGE REGRESSIONS PASS",
+  "case_count": 19,
+  "cases": [
+    {
+      "case": "fresh rise spanning backlight turn-on",
+      "load": 0,
+      "phase_ms": 0,
+      "old": {
+        "on_ms": [],
+        "off_ms": []
+      },
+      "new": {
+        "on_ms": [
+          5500
+        ],
+        "off_ms": [
+          12500
+        ]
+      }
+    },
+    {
+      "case": "fresh rise spanning backlight turn-on",
+      "load": 0,
+      "phase_ms": 63,
+      "old": {
+        "on_ms": [],
+        "off_ms": []
+      },
+      "new": {
+        "on_ms": [
+          5750
+        ],
+        "off_ms": [
+          12500
+        ]
+      }
+    },
+    {
+      "case": "fresh rise spanning backlight turn-on",
+      "load": 0,
+      "phase_ms": 249,
+      "old": {
+        "on_ms": [],
+        "off_ms": []
+      },
+      "new": {
+        "on_ms": [
+          5750
+        ],
+        "off_ms": [
+          12500
+        ]
+      }
+    },
+    {
+      "case": "fresh rise spanning backlight turn-on",
+      "load": 128,
+      "phase_ms": 0,
+      "old": {
+        "on_ms": [],
+        "off_ms": []
+      },
+      "new": {
+        "on_ms": [
+          5500
+        ],
+        "off_ms": [
+          12500
+        ]
+      }
+    },
+    {
+      "case": "fresh rise spanning backlight turn-on",
+      "load": 128,
+      "phase_ms": 63,
+      "old": {
+        "on_ms": [],
+        "off_ms": []
+      },
+      "new": {
+        "on_ms": [
+          5750
+        ],
+        "off_ms": [
+          12500
+        ]
+      }
+    },
+    {
+      "case": "fresh rise spanning backlight turn-on",
+      "load": 128,
+      "phase_ms": 249,
+      "old": {
+        "on_ms": [],
+        "off_ms": []
+      },
+      "new": {
+        "on_ms": [
+          5750
+        ],
+        "off_ms": [
+          12500
+        ]
+      }
+    },
+    {
+      "case": "other observed load transitions still rebase",
+      "before_load": 8,
+      "after_load": 0,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "other observed load transitions still rebase",
+      "before_load": 136,
+      "after_load": 128,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "other observed load transitions still rebase",
+      "before_load": 0,
+      "after_load": 128,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "other observed load transitions still rebase",
+      "before_load": 8,
+      "after_load": 136,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "other observed load transitions still rebase",
+      "before_load": 0,
+      "after_load": 136,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "small screen-on recovery rejected",
+      "rise_counts": 0,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "small screen-on recovery rejected",
+      "rise_counts": 4,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "small screen-on recovery rejected",
+      "rise_counts": 12,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "small screen-on recovery rejected",
+      "rise_counts": 20,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "small screen-on recovery rejected",
+      "rise_counts": 31,
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "sleep_gap",
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "brief_spike",
+      "result": {
+        "on_ms": [],
+        "off_ms": []
+      }
+    },
+    {
+      "case": "two minutes of backlight-only voltage shifts never latch"
+    }
+  ],
+  "candidate_sha256": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+  "physical_device_access": false,
+  "reported_misses_proven_fixed": false,
+  "deep_sleep_wake_fixed": false,
+  "battery_impact_measured": false,
+  "limitations": [
+    "Only a fresh sustained rise across a backlight-only turn-on is newly accepted.",
+    "Synthetic voltages and simulated GPIO; no trace of the three physical misses exists.",
+    "A callback gap still invalidates the baseline; flat high voltage cannot identify a cable.",
+    "No charger, wake-source, sleep-policy or CPU-policy register is changed."
+  ]
+}

@@ -1,90 +1,79 @@
-# Optional smooth menu slides
+# Optional smooth menu slides, v0.3.0
 
-The smooth-menu prototype keeps Apple's **300 ms transition duration** and
-original easing curve. It requests a cached-image position update every
-**20 ms**, replacing the normal **30 ms** request for the identified menu
-slide. Under an ideal scheduler that gives 15 timed updates instead of 10.
-These numbers describe requested updates, not measured LCD frames per second.
+The optional profile keeps Apple's **300 ms transition and easing curve**.
+It requests cached-image positions on a 60 Hz deadline grid: 17, 34, 50, 67,
+84, 100 ms, continuing through 300 ms. An ideal scheduler produces **18 timed
+updates**, versus 15 in [the previous profile](smooth-menus-v1.md) and 10 in
+stock firmware. This is not measured LCD fps or optical-flow frame generation.
 
-Apple already caches the outgoing and incoming menu images, calculates their
-intermediate positions from elapsed time, and copies the two images into the
-display context. The patch reuses that mechanism. It does not analyze rendered
-frames or synthesize text with optical-flow interpolation.
+Late callbacks select the next future slot. They do not build up a queue of
+missed frames. Apple's existing start, elapsed-time position calculation,
+image copies, completion and cancellation remain in use.
 
-## Battery and performance limits
+## Battery and scope
 
-The patch keeps the original CPU policy, animation duration, drawing code,
-display timing and sleep behavior. It adds no background timer. The existing
-transition timer stops through Apple's original completion and cancellation
-paths. The faster cadence is selected only if the backlight circuit is enabled.
+CPU policy, transition duration, display transfer code and sleep policy stay
+unchanged. No background timer is added. More image copies and deadline
+calculations add work during each slide. **Battery impact, visual smoothness,
+audio behavior, tearing and physical frame rate are unmeasured.** The earlier
+profile felt snappier to its user, but that was not a measured result.
 
-More image copies still cost processing and memory bandwidth: a nominal slide
-has five additional timed updates. The cost is confined to those short menu
-slides, but **a negligible or zero battery hit has not been demonstrated**.
-Audio behavior, visual smoothness, scheduler delays, tearing and physical
-battery runtime remain unmeasured. A 20 ms request is not a promise of 50 fps,
-and this is not a 60-fps patch. The display transfer path has its own limits;
-the [Rockbox Video display driver](https://github.com/Rockbox/rockbox/blob/master/firmware/target/arm/ipod/video/lcd-video.c)
-also distinguishes submitted updates from the display controller's completion.
+This profile includes the [v4 screen-on charging correction](screen-on-correction.md)
+and removes the legacy screen-lit CPU boost. Drawing load can affect a
+voltage-based charging estimate; the combined build still needs physical
+validation. It does not fix USB-C wake from deep sleep.
 
-This profile includes reconnect-v3 and replaces the separate optional screen
-boost if present. It uses Apple's ordinary CPU policy. A different draw load
-could affect the voltage-based USB-C charging estimate; physical coexistence
-has not been validated.
+## Firmware implementation
 
-## Narrow firmware scope
+Only the exact supported Video 5G Apple 1.3 image is accepted. A 416-byte helper
+is appended to the v4 charging payload. It changes the timer setup call at
+`0x2028c8` and rearm calls at `0x2028dc`, `0x202ebc` and `0x20300c`.
 
-Only the exact supported iPod Video 5G Apple 1.3 image is accepted. The call to
-the timer setter at OS offset `0x2028c8` is redirected to a 164-byte helper.
-It changes the requested period only when all these conditions hold:
+Eligibility requires the known visible horizontal menu container (`0x673004`,
+view `0x5e15`), ordinary mode, direction 0 or 1, a 300 ms duration, and an enabled
+backlight output. Setup changes only an original 30 ms interval. Rearm adjusts
+intervals of 1–30 ms only while that eligible transition is active. Other cases
+pass through to Apple's existing timer calls. If eligibility changes during a
+slide, the last interval can persist until Apple's normal completion stops it.
 
-- Original period: 30 ms; duration: 300 ms.
-- Container vtable: `0x673004`; view identifier: `0x5e15`.
-- View visible; horizontal direction 0 or 1; ordinary slide mode 0.
-- GPIOB3 enabled, configured as output, and active.
-
-Other periods, durations, containers, directions and transition modes pass
-through unchanged. The helper calls Apple's original timer setter. It has no
-state, allocation or hardware writes. The reconnect-v3 payload remains byte
-identical. Neither the easing function nor transition cleanup is patched.
+The helper has no independent state or allocations. Native unsigned division
+and clock routines calculate future deadlines. No clock, charger or wake-source
+register is changed. The charging payload is byte-identical to v4.
 
 ## Validation
 
-Saved-firmware ARM execution, using a privately retained UI graph, passed:
+Saved-firmware ARM execution passed:
 
-- Four complete slide replays: both directions, original and modified cadence.
-- 122 comparisons at matching elapsed times: identical positions and completion
-  state, confirming that the easing curve and duration are unchanged in replay.
-- Six reversals and sixteen cancellations through the original routines.
-- 390 helper scope checks, including screen-off and non-menu cases.
+- Both directions: 18 requested updates ending at 300 ms.
+- 244 equal-time geometry comparisons, including clock wraparound.
+- Five delayed-callback scenarios, with missed slots skipped.
+- Six reversals and eight cancellations through original routines.
+- 485 scope checks, including screen-off and non-menu cases.
 
-Clock, scheduler, drawing/image copies, synchronization and external UI calls
-were simulated. This is isolated routine validation, not a full iPod emulator
-or a physical installation. See [machine-readable results](smooth-menu-validation.json).
+Clock, scheduling, external UI and image copies were simulated. This is isolated
+routine validation, not a full iPod emulator or proof of physical performance.
+See [results](smooth-v2-validation.json).
 
-The installer also validates transformations and restoration using exact saved
-images, fresh backups, sector bounds and full-prefix comparisons. These checks
-do not establish the physical results above.
-
-Build privately after building reconnect-v3:
+Build privately with Clang supporting ARMv4T and the dependencies in
+`requirements.txt`:
 
 ```sh
-python3 tools/build_smooth.py --input build/osos-reconnect-v3.bin
+python3 tools/build_reconnect_v4.py --original local/apple-original.bin
+python3 tools/build_smooth_v2.py --input build/reconnect-v4/osos-reconnect-v4.bin
 ```
 
-The offline replay requires the exact private snapshot and the `unicorn`
-Python package. It is not included in the public download:
+The replay also needs the exact privately retained UI snapshot and v3 baseline;
+these Apple images are not included in public downloads:
 
 ```sh
-python3 tools/check_smooth_runtime.py --baseline build/osos-reconnect-v3.bin \
-  --candidate build/smooth/osos-smooth.bin --snapshot-prefix local/ui-snapshot.bin \
-  --report build/smooth/replay.json
+python3 tools/check_smooth_v2.py --baseline build/osos-reconnect-v3.bin \
+  --candidate build/smooth-v2/osos-smooth-v2.bin --snapshot-prefix local/ui-snapshot.bin \
+  --report build/smooth-v2/replay.json
 ```
 
 Candidate OS SHA-256:
-`7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1`
+`c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849`
 
-Use the standard installer **from the same release or newer** to remove the
-smooth-menu change while retaining reconnect-v3, or that release's restore
-launcher to return to original Apple firmware. Older launchers do not recognize
-the new profile and will refuse it.
+Use a **v0.3.0 or newer** standard installer to remove menu pacing while keeping
+the v4 charging correction, or its restore launcher to return to original Apple
+firmware. Older launchers refuse the new hashes.

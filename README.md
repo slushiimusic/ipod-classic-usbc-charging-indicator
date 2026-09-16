@@ -46,23 +46,23 @@ with the same connection and restart steps.
 
 ## What changed
 
-This release carries **reconnect-v3**. The previous version could clear its icon
-after a 16-count voltage fall but reject a quick return only 12 counts above
-that partly relaxed baseline, even when it returned within four counts of the
-previous high. The new version accepts that qualified return and retains the
-previous high for the next unplug. Ordinary first connections still require
-a sustained 32-count rise; disconnects require a sustained 16-count fall.
+Version **0.3.0** adds a narrow screen-on correction to reconnect-v3. A fresh,
+large voltage rise is no longer discarded solely because the backlight turns
+on at the same time. Other observed load changes still reset that reference.
+The thresholds, reconnect qualification and confirmation time are unchanged.
 
 The timer samples every 250 ms and uses a 400-tick confirmation. Qualified
 abrupt changes respond in roughly 500–750 ms in simulated replay. That is
-**not a guaranteed physical cable latency**. The slow, long-term fallback is
-absent. Native 30-pin charging keeps priority.
+**not a guaranteed physical cable latency**. Native 30-pin charging keeps
+priority. The old slow, long-term fallback remains absent.
 
-The previous version was reported to work in about twenty physical trials
-with two misses; waiting roughly three seconds improved reconnect reliability.
-The v3 correction has passed local firmware tests but has **not yet been
-physically validated**. Windows device installation also remains physically
-unverified; automated tests use temporary files and simulated storage.
+The previous smooth-menu build was reported to detect 15 of 18 physical USB-C
+connections. One miss occurred with the screen off, and USB-C did not wake the
+iPod. The new correction addresses a reproduced software edge-loss case;
+**it has not been installed or shown to fix those three physical misses**.
+See [charging scope and checks](docs/screen-on-correction.md). Windows device
+installation also remains physically unverified; automated installer tests
+use temporary files and simulated storage.
 
 ## Compatibility
 
@@ -97,30 +97,31 @@ underclock or overclock in it. The additional polling's battery cost is unmeasur
 
 ### Smooth menu movement, original transition length
 
-[Mac optional smooth menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/download/v0.2.2/Install-Optional-Smooth-Menus-Mac.zip) ·
-[Windows optional smooth menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/download/v0.2.2/Install-Optional-Smooth-Menus.cmd)
+[Mac optional smooth menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Smooth-Menus-Mac.zip) ·
+[Windows optional smooth menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Smooth-Menus.cmd)
 
-This experimental profile keeps the same 300 ms menu slide and original CPU
-policy. It requests more intermediate positions using Apple's cached menu
-images: 20 ms spacing instead of 30 ms, only for the identified horizontal
-menu slide while the backlight is enabled. It adds no background timer.
+This experimental profile keeps the same **300 ms menu slide** and original
+CPU policy. It requests cached-image positions on a **60 Hz deadline grid**:
+18 timed updates per slide, compared with 15 in the previous smooth profile
+and 10 in stock firmware. Late callbacks skip missed slots rather than queueing
+extra work. It adds no background timer.
 
-**Physical smoothness and battery impact are unmeasured.** The nominal change
-is 15 timed updates instead of 10, not a verified 50-fps display rate. The extra
-copies do some additional work during each slide; no zero-cost claim is made.
-This profile includes reconnect-v3 and replaces the screen boost if installed.
-See [scope and validation](docs/smooth-menus.md).
+**This is not measured 60 fps.** Physical smoothness and battery impact remain
+unmeasured. Additional image copies cost work during menu slides; unchanged CPU
+policy and sleep behavior do not establish zero battery cost. This profile
+includes the new screen-on charging correction and replaces the CPU boost if
+installed. See [scope and validation](docs/smooth-menus.md).
 
-To remove this profile, use the standard or restore launcher **from v0.2.2 or
-newer**. Older launchers do not recognize the new firmware hash.
+To remove this profile, use the standard or restore launcher **from v0.3.0 or
+newer**. Older launchers do not recognize the new firmware hashes.
 
 ### Screen-lit CPU boost
 
 [Mac optional screen boost](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Screen-Boost-Mac.zip) ·
 [Windows optional screen boost](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Screen-Boost.cmd)
 
-This separate installer includes the same reconnect correction and requests
-Apple's existing maximum speed while the backlight circuit is enabled. With
+This legacy profile retains reconnect-v3; it **does not include the new
+screen-on charging correction**. It requests Apple's existing maximum speed while the backlight circuit is enabled. With
 the saved stock settings, that request is 80 MHz. When the circuit is disabled,
 Apple's normal policy is preserved. It does not change the clock driver,
 write clock registers directly, add a timer, or raise the stock ceiling.
@@ -147,13 +148,16 @@ partition tables and hibernation data are outside the write plan.
 
 ## Source and validation
 
-- `src/charging_indicator.c`: reconnect-v3 firmware source.
+- `src/charging_indicator_v4.c`: current charging source; v3 source is retained.
+- `src/smooth_menus_v2.c`: optional deadline-based menu timing helper.
 - `installer/`: shared planner, transaction/recovery code and macOS/Windows backends.
 - `patches/`: small reversible byte patches and exact firmware hashes.
 - `tools/package_release.py`: reproducible standalone launcher packaging.
 - `tests/test_portable.py`: storage guards, failed-write recovery, synthetic firmware,
   and native Windows temporary-file I/O; never opens a physical device.
-- `docs/validation.json`: scope of the firmware checks and physical observations.
+- `docs/screen-on-validation.json` and `docs/smooth-v2-validation.json`: current offline checks.
+- `docs/installer-v030-validation.json`: 28 install/restore paths using exact saved images.
+- `docs/validation.json`: historical reconnect-v3 checks.
 - `tools/install.py` and `config/device.example.json`: legacy v0.1.0 macOS workflow.
 
 Run portable checks and build the launchers:
@@ -170,14 +174,18 @@ To rebuild the full candidate privately from your own verified original OS,
 install `requirements.txt` and use Clang with ARMv4T support:
 
 ```sh
-python3 tools/build_firmware.py --original local/apple-original.bin
+python3 tools/build_reconnect_v4.py --original local/apple-original.bin
+python3 tools/build_smooth_v2.py --input build/reconnect-v4/osos-reconnect-v4.bin
 ```
 
 Original OS SHA-256:
 `784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251`
 
-Reference v3 OS SHA-256 (Apple Clang 21.0.0):
-`4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270`
+Reference v4 OS SHA-256 (Apple Clang 21.0.0):
+`9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8`
+
+Optional smooth-v2 OS SHA-256:
+`c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849`
 
 Other compiler output requires separate validation. No complete firmware
 image or private device profile belongs in a public commit or release.

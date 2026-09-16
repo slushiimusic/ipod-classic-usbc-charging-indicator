@@ -15,9 +15,11 @@ V2 = 'f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a'
 V3 = '4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270'
 RESPONSIVE = '253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec'
 SMOOTH = '7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1'
+V4 = '9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8'
+SMOOTH_V2 = 'c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849'
 DIRECTORY_SHA = '2f81b47602a6d172ddfff3a706461d13f87da8f62eac72b85fb484625098b392'
 RESOURCE_SHA = '080d43f7cf87fb4b4a3f079ce7f35731a217031bf59f1fc80cb87fa49821af11'
-OS_SECTORS = {0, 0x800, 0xfe000, 0x18a800, 0x1ae000, 0x1d8800, 0x1d9000, 0x202800, 0x735800}
+OS_SECTORS = {0, 0x800, 0xfe000, 0x18a800, 0x1ae000, 0x1d8800, 0x1d9000, 0x202800, 0x203000, 0x735800}
 
 
 def require(condition, message):
@@ -32,7 +34,8 @@ def sha(data):
 def manifests(root=None):
     root = root or Path(__file__).resolve().parent.parent / 'patches'
     result = {}
-    for name, expected in [('v2', V2), ('v3', V3), ('responsive', RESPONSIVE), ('smooth', SMOOTH)]:
+    for name, expected in [('v2', V2), ('v3', V3), ('responsive', RESPONSIVE), ('smooth', SMOOTH),
+                           ('v4', V4), ('smooth_v2', SMOOTH_V2)]:
         m = json.loads((root / (name + '.json')).read_text())
         require(m['original_sha256'] == STOCK and m['target_sha256'] == expected,
                 'Patch manifest identity mismatch')
@@ -75,7 +78,7 @@ def plan_for(prefix, mode='install', patch_set=None):
     require(sha(prefix[0x75b000:0xc5b800]) == RESOURCE_SHA, 'Apple resource image mismatch')
     current = prefix[OS_OFFSET:OS_OFFSET + OS_LENGTH]
     observed = sha(current)
-    require(observed in (STOCK, V2, V3, RESPONSIVE, SMOOTH),
+    require(observed in (STOCK, V2, V3, RESPONSIVE, SMOOTH, V4, SMOOTH_V2),
             'Unsupported firmware. Requires exact iPod Video 5G Apple 1.3 or a recognized project patch.')
     directory = bytearray(prefix[DIR_BLOCK:DIR_BLOCK + BLOCK])
     require(struct.unpack_from('<I', directory, CHECKSUM)[0] == sum(current) & 0xffffffff,
@@ -84,7 +87,7 @@ def plan_for(prefix, mode='install', patch_set=None):
     require(sha(directory) == DIRECTORY_SHA, 'Unsupported firmware directory layout')
     patch_set = patch_set or manifests()
     original = current if observed == STOCK else transform(current, patch_set[observed], reverse=True)
-    target = {'responsive': RESPONSIVE, 'smooth': SMOOTH}.get(mode, V3)
+    target = {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2}.get(mode, V4)
     wanted = original if mode == 'restore' else transform(original, patch_set[target])
     struct.pack_into('<I', directory, CHECKSUM, sum(wanted) & 0xffffffff)
     plan = []
@@ -96,7 +99,7 @@ def plan_for(prefix, mode='install', patch_set=None):
     old_dir = prefix[DIR_BLOCK:DIR_BLOCK + BLOCK]
     if directory != old_dir:
         plan.append((DIR_BLOCK, old_dir, bytes(directory)))
-    require(len(plan) <= 10, 'Too many firmware sectors')
+    require(len(plan) <= 11, 'Too many firmware sectors')
     expected = bytearray(prefix)
     for off, _, after in plan:
         expected[off:off + BLOCK] = after
