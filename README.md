@@ -59,7 +59,8 @@ priority. The old slow, long-term fallback remains absent.
 The previous smooth-menu build was reported to detect 15 of 18 physical USB-C
 connections. One miss occurred with the screen off, and USB-C did not wake the
 iPod. The new correction addresses a reproduced software edge-loss case;
-**it has not been installed or shown to fix those three physical misses**.
+**installation is now verified on one iPod, but those three physical misses
+have not been shown to be fixed**.
 See [charging scope and checks](docs/screen-on-correction.md). Windows device
 installation also remains physically unverified; automated installer tests
 use temporary files and simulated storage.
@@ -106,8 +107,9 @@ CPU policy. It requests cached-image positions on a **60 Hz deadline grid**:
 and 10 in stock firmware. Late callbacks skip missed slots rather than queueing
 extra work. It adds no background timer.
 
-**This is not measured 60 fps.** Physical smoothness and battery impact remain
-unmeasured. Additional image copies cost work during menu slides; unchanged CPU
+**This is not measured 60 fps.** After a verified v0.3.0 installation, the user
+reported no noticeable improvement in the slide animation itself. Display
+frame rate and battery impact remain unmeasured. Additional image copies cost work during menu slides; unchanged CPU
 policy and sleep behavior do not establish zero battery cost. This profile
 includes the new screen-on charging correction and replaces the CPU boost if
 installed. See [scope and validation](docs/smooth-menus.md).

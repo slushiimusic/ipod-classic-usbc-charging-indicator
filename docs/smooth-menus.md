@@ -16,12 +16,15 @@ CPU policy, transition duration, display transfer code and sleep policy stay
 unchanged. No background timer is added. More image copies and deadline
 calculations add work during each slide. **Battery impact, visual smoothness,
 audio behavior, tearing and physical frame rate are unmeasured.** The earlier
-profile felt snappier to its user, but that was not a measured result.
+profile felt snappier to its user, but that was not a measured result. After a
+verified installation of v0.3.0, the user reported no noticeable improvement
+and identified the slide animation itself as the remaining concern. The
+300 ms duration is intentionally unchanged; no visible benefit is established.
 
 This profile includes the [v4 screen-on charging correction](screen-on-correction.md)
 and removes the legacy screen-lit CPU boost. Drawing load can affect a
 voltage-based charging estimate; the combined build still needs physical
-validation. It does not fix USB-C wake from deep sleep.
+charging and frame-rate validation. It does not fix USB-C wake from deep sleep.
 
 ## Firmware implementation
 
@@ -77,3 +80,16 @@ Candidate OS SHA-256:
 Use a **v0.3.0 or newer** standard installer to remove menu pacing while keeping
 the v4 charging correction, or its restore launcher to return to original Apple
 firmware. Older launchers refuse the new hashes.
+
+## Follow-up on unchanged slide movement
+
+The native timer setter stores the requested interval unchanged (`0xbfde8`).
+The timer enqueue path (`0xc6c50`) calculates its deadline from the current
+clock plus that interval multiplied by 1,000. No fixed 30 ms minimum was found
+in those routines. This does not establish when queued events run or when a
+frame reaches the LCD.
+
+The offline harness substitutes scheduling and image-copy operations. Its
+18-update result establishes requested positions under that model, not physical
+frame delivery. The unchanged-motion report therefore remains unresolved.
+No further timing, CPU-policy or rendering change was made from this report.
