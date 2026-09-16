@@ -15,6 +15,20 @@ direct USB-C presence signal or change the charger, charging current, battery
 protection, CPU clock, or battery-level gauge. Load changes can still imitate
 charging, and unchanged voltage can prevent detection.
 
+## Compatibility
+
+| iPod model | Status in this release |
+| --- | --- |
+| iPod Video 5th generation, exact Apple 1.3 image | Experimental; observed working on the development device with occasional missed reconnects |
+| iPod Classic 6th generation | Not supported yet; separate firmware port required |
+| iPod Classic 7th generation | Not supported yet; separate firmware port required |
+
+The 6th- and 7th-generation models are requested port targets, not compatible
+with the current download. The firmware-image and device-layout checks stay
+in place. See [compatibility and port requirements](docs/compatibility.md).
+Install and restore scripts currently require macOS; Windows installation
+is not supported.
+
 ## Contents
 
 - `src/charging_indicator.c` — firmware hook source.
