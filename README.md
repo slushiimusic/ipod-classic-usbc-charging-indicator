@@ -95,6 +95,27 @@ underclock or overclock in it. The additional polling's battery cost is unmeasur
 
 ## Optional responsiveness profile
 
+### Smooth menu movement, original transition length
+
+[Mac optional smooth menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/download/v0.2.2/Install-Optional-Smooth-Menus-Mac.zip) ·
+[Windows optional smooth menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/download/v0.2.2/Install-Optional-Smooth-Menus.cmd)
+
+This experimental profile keeps the same 300 ms menu slide and original CPU
+policy. It requests more intermediate positions using Apple's cached menu
+images: 20 ms spacing instead of 30 ms, only for the identified horizontal
+menu slide while the backlight is enabled. It adds no background timer.
+
+**Physical smoothness and battery impact are unmeasured.** The nominal change
+is 15 timed updates instead of 10, not a verified 50-fps display rate. The extra
+copies do some additional work during each slide; no zero-cost claim is made.
+This profile includes reconnect-v3 and replaces the screen boost if installed.
+See [scope and validation](docs/smooth-menus.md).
+
+To remove this profile, use the standard or restore launcher **from v0.2.2 or
+newer**. Older launchers do not recognize the new firmware hash.
+
+### Screen-lit CPU boost
+
 [Mac optional screen boost](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Screen-Boost-Mac.zip) ·
 [Windows optional screen boost](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Optional-Screen-Boost.cmd)
 

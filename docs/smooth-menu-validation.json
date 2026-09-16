@@ -1,0 +1,47 @@
+{
+  "status": "OFFLINE MENU TRANSITION REPLAY PASSED",
+  "physical_device_access": false,
+  "candidate_sha256": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+  "transition_cases": 4,
+  "scope_guard_cases": 390,
+  "matching_time_geometry_cases": 122,
+  "reversal_cases": [
+    {
+      "direction": 0,
+      "reversed_at_ms": 40
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 140
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 260
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 40
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 140
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 260
+    }
+  ],
+  "cancellation_cases": 16,
+  "limitations": [
+    "Clock, scheduler, synchronization, image copies and external UI calls simulated",
+    "No physical boot, LCD frame rate or battery measurement"
+  ],
+  "requested_period_ms": 20,
+  "original_period_ms": 30,
+  "transition_duration_ms": 300,
+  "cpu_policy_changes": false,
+  "added_idle_timers": false,
+  "physical_smoothness_verified": false,
+  "battery_impact_measured": false,
+  "exact_saved_image_install_restore_paths": 20
+}

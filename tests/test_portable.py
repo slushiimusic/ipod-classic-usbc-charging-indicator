@@ -40,8 +40,8 @@ class MemoryDisk:
 
 class TransactionTests(unittest.TestCase):
     def setUp(self):
-        self.before = bytes(f.BLOCK * 9)
-        self.plan = [(i * f.BLOCK, bytes(f.BLOCK), bytes([i + 1]) * f.BLOCK) for i in range(1, 9)]
+        self.before = bytes(f.BLOCK * 10)
+        self.plan = [(i * f.BLOCK, bytes(f.BLOCK), bytes([i + 1]) * f.BLOCK) for i in range(1, 10)]
         self.plan.append((0, bytes(f.BLOCK), bytes([99]) * f.BLOCK))
         self.after = bytearray(self.before)
         for off, _, data in self.plan:
@@ -184,11 +184,14 @@ class FirmwareTests(unittest.TestCase):
         b[0x18ad4c:0x18ad50] = b'old!'
         c[0x18ad4c:0x18ad50] = b'new!'
         d[0x18ad4c:0x18ad50] = b'fast'
-        cls.images = [a, bytes(b), bytes(c), bytes(d)]
+        e = bytearray(c)
+        e[0x2028c8:0x2028cc] = b'menu'
+        cls.images = [a, bytes(b), bytes(c), bytes(d), bytes(e)]
         cls.hashes = [f.sha(x) for x in cls.images]
         cls.patches = {h: dict(original_sha256=cls.hashes[0], target_sha256=h,
                               changes=[dict(offset=0x18ad4c, before='00000000', after=image[0x18ad4c:0x18ad50].hex())])
                        for h, image in zip(cls.hashes[1:], cls.images[1:])}
+        cls.patches[cls.hashes[4]]['changes'].append(dict(offset=0x2028c8, before='00000000', after='6d656e75'))
         prefix = bytearray(f.PREFIX)
         prefix[510:512] = b'\x55\xaa'
         struct.pack_into('<II', prefix, 454, 63, 48132)
@@ -198,6 +201,7 @@ class FirmwareTests(unittest.TestCase):
 
     def constants(self):
         return patch.multiple(f, STOCK=self.hashes[0], V2=self.hashes[1], V3=self.hashes[2], RESPONSIVE=self.hashes[3],
+                              SMOOTH=self.hashes[4],
                               RESOURCE_SHA=f.sha(self.prefix[0x75b000:0xc5b800]),
                               DIRECTORY_SHA=f.sha(bytes(f.BLOCK)))
 
@@ -209,8 +213,8 @@ class FirmwareTests(unittest.TestCase):
 
     def test_all_supported_install_and_restore_paths(self):
         with self.constants():
-            for index in range(4):
-                for mode, target in [('install', 2), ('restore', 0), ('responsive', 3)]:
+            for index in range(5):
+                for mode, target in [('install', 2), ('restore', 0), ('responsive', 3), ('smooth', 4)]:
                     with self.subTest(source=index, mode=mode):
                         plan, expected, original = f.plan_for(self.image_prefix(index), mode, self.patches)
                         self.assertEqual(expected, self.image_prefix(target))
