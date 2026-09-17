@@ -1,0 +1,37 @@
+{
+  "candidate_sha256": "20b25c2436ebb1df79a2e5150a816c17c1c7482d59850316565007a8e0df1470",
+  "preparations": [
+    {
+      "direction": 0,
+      "capture": 0,
+      "previous_instructions": 603030,
+      "candidate_instructions": 432822
+    },
+    {
+      "direction": 0,
+      "capture": 1,
+      "previous_instructions": 603030,
+      "candidate_instructions": 432822
+    },
+    {
+      "direction": 1,
+      "capture": 0,
+      "previous_instructions": 603035,
+      "candidate_instructions": 432827
+    },
+    {
+      "direction": 1,
+      "capture": 1,
+      "previous_instructions": 603035,
+      "candidate_instructions": 432827
+    }
+  ],
+  "frames": 72,
+  "reversals": 3,
+  "cancellations": 2,
+  "pending_redraws": 6,
+  "device_access": false,
+  "limits": [
+    "One saved UI graph with modeled clock, scheduler and display delivery; no physical latency or battery measurement."
+  ]
+}

@@ -46,16 +46,19 @@ with the same connection and restart steps.
 
 ## Drawing optimization preview
 
-[Version 0.5.0-preview.4](docs/single-paint.md) tries a further reduction in the
-work before menu movement. It skips a redundant preparation redraw only for a
-pending, active, captured horizontal slide. The optimized copies, 17 ms requested
-updates, 300 ms duration and original CPU policy are retained.
+[Version 0.5.0-preview.5](docs/bulk-fill.md) accelerates solid menu-background
+fills while retaining preview 4's copies, preparation, 17 ms requested updates,
+300 ms slide duration, charging estimate and original CPU policy.
 
-Preview 3 was reported to feel only marginally faster; the remaining pause has
-not been established as fixed. This preview is opt-in and needs physical feedback.
-Stable downloads above are unchanged. The included previous-preview launcher
-returns directly to preview 3; standard and Apple-restoration launchers are also
-included. Battery impact and physical frame rate remain unmeasured.
+Preview 4 was reported to feel unchanged from the preceding preview. A fuller
+saved-menu trace now shows about 9.3% fewer instructions from the list button-release handler
+through the first paint, with identical RAM state. This is not a physical latency
+measurement or a claim that the remaining pause is fixed. Physical battery impact
+and frame rate are unmeasured.
+
+This preview is opt-in; stable downloads above are unchanged. Its included
+previous-preview launcher returns to preview 4. Use restore files from this new
+release because older installers cannot recognize it.
 
 ## What changed
 

@@ -8,10 +8,10 @@ import subprocess
 import sys
 import tempfile
 import uuid
-from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V4, RESPONSIVE, SMOOTH_V2, FAST, EFFICIENT_V3, EFFICIENT_V4, plan_for, require, sha, transact
+from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V4, RESPONSIVE, SMOOTH_V2, FAST, EFFICIENT_V4, EFFICIENT_V5, plan_for, require, sha, transact
 from .hosts import MacHost, WindowsHost
 
-VERSION = '0.5.0-preview.4'
+VERSION = '0.5.0-preview.5'
 
 
 def save(path, data):
@@ -32,7 +32,7 @@ def run(host, mode, output):
     token = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
     receipt = {'release_version': VERSION, 'mode': mode, 'started': token, 'writes_attempted': False, 'verified': False,
                'ejected': False, 'original_sha256': STOCK,
-               'candidate_sha256': {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'efficient': EFFICIENT_V4, 'drawing_previous': EFFICIENT_V3, 'restore': STOCK}.get(mode, V4)}
+               'candidate_sha256': {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'efficient': EFFICIENT_V5, 'drawing_previous': EFFICIENT_V4, 'restore': STOCK}.get(mode, V4)}
     device = None
     output.mkdir(parents=True, exist_ok=True)
     # Ensure the recovery destination is writable before dismounting the iPod.
@@ -79,8 +79,8 @@ def run(host, mode, output):
             transact(device, plan, before, expected)
             receipt['verified'] = True
             receipt['status'] = {'restore': 'Original Apple OS restored',
-                                 'drawing_previous': 'Previous smooth drawing preview restored; original transition preparation active',
-                                 'efficient': 'Faster-start drawing preview installed; 17 ms updates and original CPU policy active',
+                                 'drawing_previous': 'Previous drawing preview 4 restored',
+                                 'efficient': 'Bulk-fill drawing preview installed; 17 ms updates and original CPU policy retained',
                                  'responsive': 'Quick reconnect correction and experimental screen-lit boost installed',
                                  'fast': '150 ms menu slides and screen-on charging correction installed; original CPU policy active',
                                  'smooth': 'Screen-on edge correction and experimental menu pacing installed; original CPU policy active',
@@ -125,7 +125,7 @@ def main():
     args = p.parse_args()
     if args.self_test:
         from .firmware import manifests
-        require(len(manifests()) == 11, 'Missing patch data')
+        require(len(manifests()) == 12, 'Missing patch data')
         print(f'Installer {VERSION}: bundled patch data loaded. No device access.')
         return 0
     require(sys.platform in ('darwin', 'win32'), 'Installation requires macOS or Windows')
