@@ -1,0 +1,4774 @@
+{
+  "status": "Offline differential checks passed; not installed",
+  "candidate_sha256": "53bfd968ba80f83c359faa5d7a1325f9a9744a875ffea0d0ecc12b103d24944d",
+  "cases": 353,
+  "results": [
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 15,
+      "original_instructions": 196685,
+      "candidate_instructions": 67949
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 30,
+      "original_instructions": 204491,
+      "candidate_instructions": 78347
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 45,
+      "original_instructions": 204491,
+      "candidate_instructions": 85259
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 50,
+      "original_instructions": 204491,
+      "candidate_instructions": 78347
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 75,
+      "original_instructions": 204453,
+      "candidate_instructions": 85221
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 90,
+      "original_instructions": 204491,
+      "candidate_instructions": 85259
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 110,
+      "original_instructions": 204491,
+      "candidate_instructions": 85259
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 150,
+      "original_instructions": 204453,
+      "candidate_instructions": 85221
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 190,
+      "original_instructions": 204491,
+      "candidate_instructions": 85259
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 220,
+      "original_instructions": 204453,
+      "candidate_instructions": 78309
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 260,
+      "original_instructions": 204521,
+      "candidate_instructions": 85289
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 299,
+      "original_instructions": 188942,
+      "candidate_instructions": 60206
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 0,
+      "elapsed_ms": 300,
+      "original_instructions": 188965,
+      "candidate_instructions": 60229
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 15,
+      "original_instructions": 196688,
+      "candidate_instructions": 67952
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 30,
+      "original_instructions": 204494,
+      "candidate_instructions": 78350
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 45,
+      "original_instructions": 204494,
+      "candidate_instructions": 85262
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 50,
+      "original_instructions": 204494,
+      "candidate_instructions": 78350
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 75,
+      "original_instructions": 204455,
+      "candidate_instructions": 85223
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 90,
+      "original_instructions": 204494,
+      "candidate_instructions": 85262
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 110,
+      "original_instructions": 204494,
+      "candidate_instructions": 85262
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 150,
+      "original_instructions": 204455,
+      "candidate_instructions": 85223
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 190,
+      "original_instructions": 204494,
+      "candidate_instructions": 85262
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 220,
+      "original_instructions": 204455,
+      "candidate_instructions": 78311
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 260,
+      "original_instructions": 204524,
+      "candidate_instructions": 85292
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 299,
+      "original_instructions": 188944,
+      "candidate_instructions": 60208
+    },
+    {
+      "kind": "saved_menu",
+      "direction": 1,
+      "elapsed_ms": 300,
+      "original_instructions": 188967,
+      "candidate_instructions": 60231
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        -17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 602,
+      "candidate_instructions": 602
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        -3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        -2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        -1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        0,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 777,
+      "candidate_instructions": 771
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        7,
+        17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        -17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 909,
+      "candidate_instructions": 927
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        -3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1101,
+      "candidate_instructions": 1119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        -2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1101,
+      "candidate_instructions": 1119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        -1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1101,
+      "candidate_instructions": 1119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        0,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 813,
+      "candidate_instructions": 885
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1101,
+      "candidate_instructions": 1119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1101,
+      "candidate_instructions": 1119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1101,
+      "candidate_instructions": 1119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        43,
+        7,
+        17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 909,
+      "candidate_instructions": 927
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        -17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1292,
+      "candidate_instructions": 1310
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        -3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1484,
+      "candidate_instructions": 1502
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        -2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1676,
+      "candidate_instructions": 1694
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        -1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1676,
+      "candidate_instructions": 1694
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        0,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 902,
+      "candidate_instructions": 974
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1676,
+      "candidate_instructions": 1694
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1676,
+      "candidate_instructions": 1694
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1676,
+      "candidate_instructions": 1694
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        7,
+        17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1292,
+      "candidate_instructions": 1310
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        -17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1871,
+      "candidate_instructions": 1889
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        -3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2447,
+      "candidate_instructions": 2465
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        -2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2639,
+      "candidate_instructions": 1421
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        -1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2639,
+      "candidate_instructions": 2657
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        0,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1055,
+      "candidate_instructions": 935
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2639,
+      "candidate_instructions": 2657
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2639,
+      "candidate_instructions": 1421
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2639,
+      "candidate_instructions": 2657
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        7,
+        17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1871,
+      "candidate_instructions": 1889
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        -17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 3038,
+      "candidate_instructions": 1532
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        -3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 4382,
+      "candidate_instructions": 1868
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        -2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1377,
+      "candidate_instructions": 1065
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        -1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 4574,
+      "candidate_instructions": 1916
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        0,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1400,
+      "candidate_instructions": 1088
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 4766,
+      "candidate_instructions": 1964
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1377,
+      "candidate_instructions": 1065
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 4574,
+      "candidate_instructions": 1916
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        7,
+        17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 3230,
+      "candidate_instructions": 1580
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        -17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1506,
+      "candidate_instructions": 1002
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        -3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1926,
+      "candidate_instructions": 1230
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        -2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1956,
+      "candidate_instructions": 1260
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        -1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1986,
+      "candidate_instructions": 1098
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        0,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2009,
+      "candidate_instructions": 1121
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        1,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1986,
+      "candidate_instructions": 1098
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        2,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1956,
+      "candidate_instructions": 1260
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        3,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1926,
+      "candidate_instructions": 1230
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        7,
+        17,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1506,
+      "candidate_instructions": 1002
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -64
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -64
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -32
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -32
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -28
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -28
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -4
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -4
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -2
+      ],
+      "original_instructions": 2089,
+      "candidate_instructions": 2089
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -2
+      ],
+      "original_instructions": 3350,
+      "candidate_instructions": 3350
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "original_instructions": 940,
+      "candidate_instructions": 840
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        0
+      ],
+      "original_instructions": 2261,
+      "candidate_instructions": 2276
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 2089,
+      "candidate_instructions": 2089
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 3350,
+      "candidate_instructions": 3350
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        4
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        4
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        28
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        28
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        32
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 829
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        32
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        64
+      ],
+      "original_instructions": 929,
+      "candidate_instructions": 974
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        64
+      ],
+      "original_instructions": 2250,
+      "candidate_instructions": 2265
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -64
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -64
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -32
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -32
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -28
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -28
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -4
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -4
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -2
+      ],
+      "original_instructions": 3479,
+      "candidate_instructions": 3479
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -2
+      ],
+      "original_instructions": 6115,
+      "candidate_instructions": 6115
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "original_instructions": 1230,
+      "candidate_instructions": 970
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        0
+      ],
+      "original_instructions": 4036,
+      "candidate_instructions": 1701
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 3479,
+      "candidate_instructions": 3479
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 6115,
+      "candidate_instructions": 6115
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        4
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        4
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        28
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        28
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        32
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        32
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        64
+      ],
+      "original_instructions": 1219,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        64
+      ],
+      "original_instructions": 4025,
+      "candidate_instructions": 1690
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -64
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -64
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -32
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -32
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -28
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -28
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -4
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -4
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        -2
+      ],
+      "original_instructions": 6083,
+      "candidate_instructions": 6083
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        -2
+      ],
+      "original_instructions": 5965,
+      "candidate_instructions": 5965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "original_instructions": 1734,
+      "candidate_instructions": 994
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        0
+      ],
+      "original_instructions": 1716,
+      "candidate_instructions": 976
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 6083,
+      "candidate_instructions": 6083
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 5965,
+      "candidate_instructions": 5965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        4
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        4
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        28
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        28
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        32
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        32
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        0,
+        -1,
+        0,
+        64
+      ],
+      "original_instructions": 1723,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        1,
+        -1,
+        0,
+        64
+      ],
+      "original_instructions": 1705,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        40,
+        17,
+        0,
+        3,
+        0,
+        -8
+      ],
+      "original_instructions": 1501,
+      "candidate_instructions": 1627
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        9,
+        17,
+        -9,
+        -8,
+        0,
+        null
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        15,
+        17,
+        -7,
+        -2,
+        0,
+        null
+      ],
+      "original_instructions": 1820,
+      "candidate_instructions": 1865
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        79,
+        1,
+        6,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        71,
+        6,
+        54,
+        -3,
+        2,
+        8
+      ],
+      "original_instructions": 774,
+      "candidate_instructions": 774
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        67,
+        1,
+        18,
+        1,
+        2,
+        64
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        76,
+        10,
+        -65,
+        7,
+        2,
+        64
+      ],
+      "original_instructions": 554,
+      "candidate_instructions": 554
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        62,
+        5,
+        4,
+        2,
+        2,
+        -8
+      ],
+      "original_instructions": 4899,
+      "candidate_instructions": 4899
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        10,
+        6,
+        -3,
+        4,
+        0,
+        null
+      ],
+      "original_instructions": 507,
+      "candidate_instructions": 513
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        5,
+        17,
+        -4,
+        -10,
+        4,
+        0
+      ],
+      "original_instructions": 670,
+      "candidate_instructions": 670
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        8,
+        16,
+        1,
+        2,
+        4,
+        8
+      ],
+      "original_instructions": 1016,
+      "candidate_instructions": 1016
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        7,
+        11,
+        -3,
+        4,
+        4,
+        2
+      ],
+      "original_instructions": 1433,
+      "candidate_instructions": 1433
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        60,
+        9,
+        -50,
+        5,
+        0,
+        0
+      ],
+      "original_instructions": 511,
+      "candidate_instructions": 511
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        29,
+        2,
+        -2,
+        -2,
+        0,
+        8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        12,
+        10,
+        -9,
+        9,
+        2,
+        2
+      ],
+      "original_instructions": 479,
+      "candidate_instructions": 479
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        65,
+        18,
+        11,
+        13,
+        0,
+        8
+      ],
+      "original_instructions": 1288,
+      "candidate_instructions": 1303
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        42,
+        4,
+        27,
+        -4,
+        4,
+        8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        7,
+        16,
+        5,
+        1,
+        2,
+        null
+      ],
+      "original_instructions": 1562,
+      "candidate_instructions": 1562
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        59,
+        16,
+        -50,
+        -10,
+        0,
+        64
+      ],
+      "original_instructions": 897,
+      "candidate_instructions": 969
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        25,
+        16,
+        -1,
+        -13,
+        0,
+        2
+      ],
+      "original_instructions": 2297,
+      "candidate_instructions": 2297
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        50,
+        16,
+        6,
+        -16,
+        2,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        56,
+        12,
+        -45,
+        -4,
+        0,
+        2
+      ],
+      "original_instructions": 968,
+      "candidate_instructions": 968
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        42,
+        15,
+        35,
+        7,
+        0,
+        null
+      ],
+      "original_instructions": 1369,
+      "candidate_instructions": 1393
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        49,
+        5,
+        30,
+        -5,
+        4,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        16,
+        17,
+        -13,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 1112,
+      "candidate_instructions": 1112
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        11,
+        15,
+        -7,
+        8,
+        0,
+        64
+      ],
+      "original_instructions": 658,
+      "candidate_instructions": 658
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        6,
+        3,
+        -1,
+        1,
+        0,
+        -8
+      ],
+      "original_instructions": 404,
+      "candidate_instructions": 404
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        59,
+        9,
+        26,
+        -9,
+        0,
+        2
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        69,
+        15,
+        -9,
+        -1,
+        2,
+        64
+      ],
+      "original_instructions": 3929,
+      "candidate_instructions": 3929
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        49,
+        8,
+        -28,
+        -2,
+        0,
+        8
+      ],
+      "original_instructions": 909,
+      "candidate_instructions": 927
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        58,
+        14,
+        -49,
+        -2,
+        4,
+        8
+      ],
+      "original_instructions": 2684,
+      "candidate_instructions": 1976
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        23,
+        2,
+        -18,
+        1,
+        2,
+        8
+      ],
+      "original_instructions": 386,
+      "candidate_instructions": 386
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        39,
+        16,
+        11,
+        13,
+        4,
+        0
+      ],
+      "original_instructions": 713,
+      "candidate_instructions": 722
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        32,
+        5,
+        17,
+        -4,
+        2,
+        null
+      ],
+      "original_instructions": 779,
+      "candidate_instructions": 779
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        69,
+        15,
+        6,
+        -6,
+        2,
+        64
+      ],
+      "original_instructions": 8268,
+      "candidate_instructions": 8268
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        74,
+        16,
+        31,
+        7,
+        2,
+        64
+      ],
+      "original_instructions": 3983,
+      "candidate_instructions": 3983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        50,
+        17,
+        34,
+        10,
+        4,
+        0
+      ],
+      "original_instructions": 1695,
+      "candidate_instructions": 1282
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        38,
+        11,
+        12,
+        3,
+        2,
+        0
+      ],
+      "original_instructions": 3610,
+      "candidate_instructions": 3610
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        16,
+        7,
+        8,
+        -1,
+        4,
+        0
+      ],
+      "original_instructions": 552,
+      "candidate_instructions": 552
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        38,
+        14,
+        -5,
+        -2,
+        0,
+        0
+      ],
+      "original_instructions": 7303,
+      "candidate_instructions": 3139
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        4,
+        15,
+        1,
+        3,
+        0,
+        null
+      ],
+      "original_instructions": 1532,
+      "candidate_instructions": 1568
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        16,
+        4,
+        -12,
+        -4,
+        4,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        43,
+        6,
+        -13,
+        -6,
+        4,
+        8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        58,
+        8,
+        -49,
+        0,
+        4,
+        -8
+      ],
+      "original_instructions": 1362,
+      "candidate_instructions": 1386
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        50,
+        10,
+        2,
+        -2,
+        2,
+        null
+      ],
+      "original_instructions": 3574,
+      "candidate_instructions": 3574
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        74,
+        11,
+        41,
+        2,
+        2,
+        -8
+      ],
+      "original_instructions": 1728,
+      "candidate_instructions": 1728
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        20,
+        2,
+        4,
+        2,
+        4,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        25,
+        5,
+        -18,
+        -4,
+        2,
+        2
+      ],
+      "original_instructions": 464,
+      "candidate_instructions": 464
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        56,
+        14,
+        -7,
+        9,
+        0,
+        2
+      ],
+      "original_instructions": 3850,
+      "candidate_instructions": 3850
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        53,
+        14,
+        -14,
+        9,
+        0,
+        64
+      ],
+      "original_instructions": 968,
+      "candidate_instructions": 983
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        32,
+        11,
+        -31,
+        3,
+        4,
+        0
+      ],
+      "original_instructions": 720,
+      "candidate_instructions": 720
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        16,
+        18,
+        -7,
+        -2,
+        0,
+        8
+      ],
+      "original_instructions": 1112,
+      "candidate_instructions": 1112
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        13,
+        9,
+        -5,
+        6,
+        0,
+        null
+      ],
+      "original_instructions": 608,
+      "candidate_instructions": 617
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        30,
+        2,
+        10,
+        -2,
+        0,
+        64
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        71,
+        6,
+        -47,
+        1,
+        2,
+        -8
+      ],
+      "original_instructions": 1098,
+      "candidate_instructions": 1098
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        45,
+        10,
+        -19,
+        -9,
+        4,
+        64
+      ],
+      "original_instructions": 773,
+      "candidate_instructions": 522
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        18,
+        18,
+        7,
+        -18,
+        4,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        60,
+        11,
+        5,
+        1,
+        4,
+        0
+      ],
+      "original_instructions": 5180,
+      "candidate_instructions": 5210
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        19,
+        3,
+        0,
+        -1,
+        4,
+        64
+      ],
+      "original_instructions": 459,
+      "candidate_instructions": 457
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        65,
+        17,
+        -56,
+        -5,
+        2,
+        64
+      ],
+      "original_instructions": 1310,
+      "candidate_instructions": 1310
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        46,
+        12,
+        -16,
+        12,
+        0,
+        2
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        14,
+        5,
+        2,
+        -3,
+        0,
+        8
+      ],
+      "original_instructions": 635,
+      "candidate_instructions": 565
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        62,
+        14,
+        39,
+        11,
+        2,
+        null
+      ],
+      "original_instructions": 1532,
+      "candidate_instructions": 1532
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        56,
+        8,
+        -17,
+        1,
+        0,
+        64
+      ],
+      "original_instructions": 1004,
+      "candidate_instructions": 1025
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        15,
+        3,
+        12,
+        1,
+        2,
+        -8
+      ],
+      "original_instructions": 435,
+      "candidate_instructions": 435
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        49,
+        9,
+        -41,
+        -7,
+        2,
+        64
+      ],
+      "original_instructions": 464,
+      "candidate_instructions": 464
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        11,
+        9,
+        1,
+        -8,
+        0,
+        null
+      ],
+      "original_instructions": 549,
+      "candidate_instructions": 466
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        75,
+        4,
+        -64,
+        0,
+        2,
+        64
+      ],
+      "original_instructions": 828,
+      "candidate_instructions": 828
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        80,
+        10,
+        -66,
+        4,
+        2,
+        null
+      ],
+      "original_instructions": 1869,
+      "candidate_instructions": 1869
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        14,
+        8,
+        1,
+        2,
+        4,
+        null
+      ],
+      "original_instructions": 602,
+      "candidate_instructions": 602
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        74,
+        13,
+        7,
+        -6,
+        2,
+        64
+      ],
+      "original_instructions": 12633,
+      "candidate_instructions": 12633
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        39,
+        12,
+        26,
+        -6,
+        4,
+        null
+      ],
+      "original_instructions": 903,
+      "candidate_instructions": 921
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        2,
+        10,
+        0,
+        7,
+        2,
+        8
+      ],
+      "original_instructions": 485,
+      "candidate_instructions": 485
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        27,
+        4,
+        -9,
+        -1,
+        4,
+        null
+      ],
+      "original_instructions": 449,
+      "candidate_instructions": 449
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        12,
+        7,
+        2,
+        -7,
+        2,
+        -8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        20,
+        5,
+        -7,
+        -1,
+        0,
+        8
+      ],
+      "original_instructions": 965,
+      "candidate_instructions": 977
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        27,
+        5,
+        8,
+        1,
+        0,
+        2
+      ],
+      "original_instructions": 1138,
+      "candidate_instructions": 1138
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        74,
+        18,
+        64,
+        14,
+        4,
+        null
+      ],
+      "original_instructions": 456,
+      "candidate_instructions": 456
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        23,
+        12,
+        -4,
+        -11,
+        0,
+        8
+      ],
+      "original_instructions": 435,
+      "candidate_instructions": 424
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        42,
+        4,
+        -35,
+        1,
+        4,
+        64
+      ],
+      "original_instructions": 454,
+      "candidate_instructions": 454
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        11,
+        15,
+        -11,
+        -5,
+        2,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        25,
+        11,
+        6,
+        -5,
+        4,
+        -8
+      ],
+      "original_instructions": 1679,
+      "candidate_instructions": 1181
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        78,
+        16,
+        -42,
+        15,
+        2,
+        null
+      ],
+      "original_instructions": 814,
+      "candidate_instructions": 814
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        21,
+        11,
+        -10,
+        1,
+        4,
+        8
+      ],
+      "original_instructions": 1331,
+      "candidate_instructions": 1451
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        54,
+        14,
+        52,
+        6,
+        4,
+        8
+      ],
+      "original_instructions": 948,
+      "candidate_instructions": 940
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        55,
+        9,
+        52,
+        7,
+        4,
+        8
+      ],
+      "original_instructions": 398,
+      "candidate_instructions": 398
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        24,
+        1,
+        16,
+        1,
+        0,
+        0
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        18,
+        6,
+        -10,
+        -5,
+        4,
+        null
+      ],
+      "original_instructions": 352,
+      "candidate_instructions": 352
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        35,
+        14,
+        12,
+        12,
+        4,
+        64
+      ],
+      "original_instructions": 499,
+      "candidate_instructions": 505
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        47,
+        6,
+        9,
+        0,
+        2,
+        null
+      ],
+      "original_instructions": 3652,
+      "candidate_instructions": 3652
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        50,
+        16,
+        -32,
+        12,
+        4,
+        2
+      ],
+      "original_instructions": 2432,
+      "candidate_instructions": 2432
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        46,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "original_instructions": 529,
+      "candidate_instructions": 529
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        41,
+        6,
+        14,
+        0,
+        0,
+        -8
+      ],
+      "original_instructions": 1477,
+      "candidate_instructions": 1495
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        76,
+        18,
+        -1,
+        16,
+        0,
+        0
+      ],
+      "original_instructions": 1203,
+      "candidate_instructions": 651
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        53,
+        6,
+        -53,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 119,
+      "candidate_instructions": 119
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        21,
+        16,
+        -4,
+        -12,
+        2,
+        null
+      ],
+      "original_instructions": 939,
+      "candidate_instructions": 939
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        76,
+        3,
+        29,
+        -2,
+        0,
+        null
+      ],
+      "original_instructions": 563,
+      "candidate_instructions": 566
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        73,
+        4,
+        -72,
+        3,
+        0,
+        0
+      ],
+      "original_instructions": 352,
+      "candidate_instructions": 352
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        67,
+        16,
+        -32,
+        -3,
+        0,
+        null
+      ],
+      "original_instructions": 1814,
+      "candidate_instructions": 1970
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        21,
+        15,
+        14,
+        -11,
+        0,
+        8
+      ],
+      "original_instructions": 837,
+      "candidate_instructions": 793
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        13,
+        8,
+        -1,
+        -8,
+        4,
+        2
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        55,
+        3,
+        7,
+        -1,
+        0,
+        -8
+      ],
+      "original_instructions": 1211,
+      "candidate_instructions": 1217
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        3,
+        16,
+        0,
+        -13,
+        4,
+        null
+      ],
+      "original_instructions": 414,
+      "candidate_instructions": 414
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        3,
+        3,
+        -1,
+        1,
+        4,
+        null
+      ],
+      "original_instructions": 421,
+      "candidate_instructions": 421
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        64,
+        10,
+        -52,
+        1,
+        2,
+        0
+      ],
+      "original_instructions": 1069,
+      "candidate_instructions": 1069
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        46,
+        5,
+        -31,
+        4,
+        2,
+        0
+      ],
+      "original_instructions": 769,
+      "candidate_instructions": 769
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        54,
+        14,
+        36,
+        -14,
+        2,
+        64
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        8,
+        15,
+        -3,
+        5,
+        2,
+        -8
+      ],
+      "original_instructions": 1141,
+      "candidate_instructions": 1141
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        78,
+        15,
+        -25,
+        -6,
+        0,
+        64
+      ],
+      "original_instructions": 1788,
+      "candidate_instructions": 1815
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        31,
+        9,
+        24,
+        1,
+        0,
+        64
+      ],
+      "original_instructions": 710,
+      "candidate_instructions": 710
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        76,
+        7,
+        50,
+        -2,
+        4,
+        null
+      ],
+      "original_instructions": 1610,
+      "candidate_instructions": 1075
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        18,
+        17,
+        7,
+        15,
+        4,
+        null
+      ],
+      "original_instructions": 778,
+      "candidate_instructions": 612
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        28,
+        10,
+        -10,
+        -5,
+        4,
+        8
+      ],
+      "original_instructions": 1105,
+      "candidate_instructions": 845
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        70,
+        16,
+        -28,
+        -16,
+        4,
+        -8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        30,
+        9,
+        6,
+        4,
+        4,
+        -8
+      ],
+      "original_instructions": 551,
+      "candidate_instructions": 551
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        65,
+        3,
+        58,
+        1,
+        2,
+        null
+      ],
+      "original_instructions": 723,
+      "candidate_instructions": 723
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        3,
+        3,
+        -3,
+        1,
+        2,
+        null
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        43,
+        10,
+        42,
+        10,
+        2,
+        8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        44,
+        1,
+        -4,
+        -1,
+        0,
+        2
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        15,
+        7,
+        -1,
+        -3,
+        0,
+        8
+      ],
+      "original_instructions": 965,
+      "candidate_instructions": 977
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        31,
+        2,
+        -15,
+        -1,
+        2,
+        8
+      ],
+      "original_instructions": 386,
+      "candidate_instructions": 386
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        70,
+        4,
+        -5,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 2048,
+      "candidate_instructions": 2057
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        49,
+        16,
+        37,
+        -13,
+        0,
+        2
+      ],
+      "original_instructions": 780,
+      "candidate_instructions": 780
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        61,
+        12,
+        -37,
+        -3,
+        4,
+        2
+      ],
+      "original_instructions": 6447,
+      "candidate_instructions": 6447
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        7,
+        4,
+        7,
+        -2,
+        2,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        50,
+        13,
+        13,
+        -4,
+        2,
+        null
+      ],
+      "original_instructions": 1728,
+      "candidate_instructions": 1728
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        78,
+        9,
+        34,
+        2,
+        0,
+        2
+      ],
+      "original_instructions": 1766,
+      "candidate_instructions": 1766
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        50,
+        17,
+        -3,
+        2,
+        4,
+        -8
+      ],
+      "original_instructions": 2298,
+      "candidate_instructions": 2343
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        20,
+        3,
+        2,
+        -2,
+        0,
+        64
+      ],
+      "original_instructions": 435,
+      "candidate_instructions": 438
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        73,
+        10,
+        45,
+        10,
+        0,
+        64
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        41,
+        12,
+        -8,
+        -3,
+        4,
+        null
+      ],
+      "original_instructions": 1167,
+      "candidate_instructions": 1275
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        53,
+        12,
+        43,
+        -6,
+        2,
+        0
+      ],
+      "original_instructions": 1268,
+      "candidate_instructions": 1268
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        58,
+        17,
+        12,
+        -12,
+        2,
+        null
+      ],
+      "original_instructions": 1598,
+      "candidate_instructions": 1598
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        80,
+        18,
+        -28,
+        4,
+        0,
+        2
+      ],
+      "original_instructions": 6018,
+      "candidate_instructions": 6018
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        2,
+        8,
+        -1,
+        -5,
+        2,
+        null
+      ],
+      "original_instructions": 494,
+      "candidate_instructions": 494
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        59,
+        5,
+        19,
+        1,
+        0,
+        -8
+      ],
+      "original_instructions": 701,
+      "candidate_instructions": 713
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        79,
+        1,
+        -43,
+        1,
+        0,
+        null
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        32,
+        7,
+        1,
+        -5,
+        4,
+        2
+      ],
+      "original_instructions": 464,
+      "candidate_instructions": 464
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        10,
+        8,
+        -10,
+        -3,
+        0,
+        null
+      ],
+      "original_instructions": 126,
+      "candidate_instructions": 126
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        27,
+        16,
+        -12,
+        -3,
+        4,
+        2
+      ],
+      "original_instructions": 2685,
+      "candidate_instructions": 2685
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        2,
+        5,
+        -1,
+        1,
+        2,
+        -8
+      ],
+      "original_instructions": 655,
+      "candidate_instructions": 655
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        1,
+        11,
+        0,
+        -11,
+        2,
+        -8
+      ],
+      "original_instructions": 116,
+      "candidate_instructions": 116
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        1,
+        9,
+        -1,
+        3,
+        4,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        64,
+        10,
+        -56,
+        -10,
+        0,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        70,
+        4,
+        -15,
+        -2,
+        4,
+        null
+      ],
+      "original_instructions": 2186,
+      "candidate_instructions": 964
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        21,
+        16,
+        13,
+        -4,
+        0,
+        0
+      ],
+      "original_instructions": 1643,
+      "candidate_instructions": 1787
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        27,
+        8,
+        3,
+        5,
+        2,
+        null
+      ],
+      "original_instructions": 780,
+      "candidate_instructions": 780
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        3,
+        14,
+        1,
+        -10,
+        4,
+        64
+      ],
+      "original_instructions": 505,
+      "candidate_instructions": 505
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        71,
+        12,
+        69,
+        7,
+        2,
+        null
+      ],
+      "original_instructions": 965,
+      "candidate_instructions": 965
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        61,
+        2,
+        -42,
+        2,
+        4,
+        -8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        13,
+        8,
+        1,
+        -2,
+        2,
+        null
+      ],
+      "original_instructions": 806,
+      "candidate_instructions": 806
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        36,
+        2,
+        -32,
+        0,
+        2,
+        -8
+      ],
+      "original_instructions": 426,
+      "candidate_instructions": 426
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        69,
+        8,
+        45,
+        1,
+        4,
+        2
+      ],
+      "original_instructions": 5081,
+      "candidate_instructions": 5081
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        17,
+        11,
+        -1,
+        6,
+        4,
+        0
+      ],
+      "original_instructions": 568,
+      "candidate_instructions": 568
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        28,
+        7,
+        18,
+        -4,
+        0,
+        2
+      ],
+      "original_instructions": 945,
+      "candidate_instructions": 945
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        39,
+        9,
+        -31,
+        -2,
+        2,
+        null
+      ],
+      "original_instructions": 884,
+      "candidate_instructions": 884
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        30,
+        14,
+        -21,
+        8,
+        0,
+        null
+      ],
+      "original_instructions": 602,
+      "candidate_instructions": 602
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        65,
+        5,
+        16,
+        -2,
+        2,
+        null
+      ],
+      "original_instructions": 853,
+      "candidate_instructions": 853
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        11,
+        15,
+        2,
+        5,
+        2,
+        null
+      ],
+      "original_instructions": 2395,
+      "candidate_instructions": 2395
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        74,
+        7,
+        37,
+        -2,
+        4,
+        null
+      ],
+      "original_instructions": 802,
+      "candidate_instructions": 817
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        21,
+        12,
+        -10,
+        10,
+        4,
+        null
+      ],
+      "original_instructions": 404,
+      "candidate_instructions": 404
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        63,
+        17,
+        -57,
+        -14,
+        2,
+        null
+      ],
+      "original_instructions": 553,
+      "candidate_instructions": 553
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        20,
+        13,
+        9,
+        5,
+        2,
+        64
+      ],
+      "original_instructions": 1575,
+      "candidate_instructions": 1575
+    },
+    {
+      "kind": "copy",
+      "case": [
+        2,
+        78,
+        18,
+        2,
+        4,
+        4,
+        null
+      ],
+      "original_instructions": 3061,
+      "candidate_instructions": 3103
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        4,
+        15,
+        2,
+        -2,
+        0,
+        null
+      ],
+      "original_instructions": 959,
+      "candidate_instructions": 959
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        18,
+        13,
+        3,
+        -5,
+        0,
+        null
+      ],
+      "original_instructions": 1881,
+      "candidate_instructions": 1905
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        2,
+        4,
+        0,
+        -4,
+        0,
+        8
+      ],
+      "original_instructions": 116,
+      "candidate_instructions": 116
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        29,
+        9,
+        23,
+        0,
+        2,
+        -8
+      ],
+      "original_instructions": 2644,
+      "candidate_instructions": 2644
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        15,
+        6,
+        -9,
+        4,
+        2,
+        8
+      ],
+      "original_instructions": 464,
+      "candidate_instructions": 464
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        40,
+        3,
+        26,
+        0,
+        0,
+        2
+      ],
+      "original_instructions": 767,
+      "candidate_instructions": 767
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        71,
+        13,
+        -22,
+        -13,
+        0,
+        64
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        4,
+        75,
+        17,
+        -22,
+        0,
+        0,
+        64
+      ],
+      "original_instructions": 4732,
+      "candidate_instructions": 4783
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        64,
+        6,
+        -44,
+        -6,
+        2,
+        0
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        2,
+        5,
+        0,
+        -2,
+        0,
+        null
+      ],
+      "original_instructions": 432,
+      "candidate_instructions": 432
+    },
+    {
+      "kind": "copy",
+      "case": [
+        32,
+        25,
+        18,
+        20,
+        5,
+        4,
+        null
+      ],
+      "original_instructions": 1548,
+      "candidate_instructions": 1704
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        18,
+        16,
+        5,
+        0,
+        4,
+        8
+      ],
+      "original_instructions": 1105,
+      "candidate_instructions": 1105
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        24,
+        17,
+        6,
+        -11,
+        2,
+        64
+      ],
+      "original_instructions": 2169,
+      "candidate_instructions": 2169
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        58,
+        2,
+        -26,
+        2,
+        2,
+        -8
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        8,
+        76,
+        3,
+        28,
+        3,
+        4,
+        null
+      ],
+      "original_instructions": 123,
+      "candidate_instructions": 123
+    },
+    {
+      "kind": "copy",
+      "case": [
+        1,
+        43,
+        9,
+        24,
+        8,
+        0,
+        0
+      ],
+      "original_instructions": 409,
+      "candidate_instructions": 412
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        100,
+        100,
+        0,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 32407,
+      "candidate_instructions": 14407
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        100,
+        100,
+        1,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 164013,
+      "candidate_instructions": 50113
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        100,
+        100,
+        2,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 31914,
+      "candidate_instructions": 17114
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        100,
+        100,
+        -1,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 164013,
+      "candidate_instructions": 50113
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        100,
+        100,
+        -2,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 31914,
+      "candidate_instructions": 17114
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        200,
+        200,
+        0,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 114507,
+      "candidate_instructions": 40107
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        200,
+        200,
+        1,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 647713,
+      "candidate_instructions": 179913
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        200,
+        200,
+        2,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 113514,
+      "candidate_instructions": 39114
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        200,
+        200,
+        -1,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 647713,
+      "candidate_instructions": 179913
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        200,
+        200,
+        -2,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 113514,
+      "candidate_instructions": 39114
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        320,
+        216,
+        0,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 188443,
+      "candidate_instructions": 59707
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        320,
+        216,
+        1,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 1114225,
+      "candidate_instructions": 297961
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        320,
+        216,
+        2,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 187370,
+      "candidate_instructions": 58634
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        320,
+        216,
+        -1,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 1114225,
+      "candidate_instructions": 297961
+    },
+    {
+      "kind": "copy",
+      "case": [
+        16,
+        320,
+        216,
+        -2,
+        0,
+        0,
+        null
+      ],
+      "original_instructions": 187370,
+      "candidate_instructions": 58634
+    }
+  ],
+  "limits": [
+    "The clock, timer scheduler and external display notifications are simulated.",
+    "Instruction counts are not physical latency, FPS or energy measurements.",
+    "Art-file reads and storage wait times are unchanged.",
+    "Full boot, actual music playback and battery runtime are not validated."
+  ],
+  "device_access": false
+}

@@ -1,0 +1,875 @@
+{
+  "status": "Offline animation checks passed",
+  "candidate_sha256": "53bfd968ba80f83c359faa5d7a1325f9a9744a875ffea0d0ecc12b103d24944d",
+  "transitions": [
+    {
+      "profile": "original_drawing",
+      "direction": 0,
+      "period_ms": 30,
+      "timed_updates": 10,
+      "completion_ms": 300,
+      "instructions": 2029186,
+      "frames": [
+        {
+          "elapsed_ms": 30,
+          "incoming": [
+            24,
+            -312,
+            240,
+            8
+          ],
+          "instructions": 204491
+        },
+        {
+          "elapsed_ms": 60,
+          "incoming": [
+            24,
+            -290,
+            240,
+            30
+          ],
+          "instructions": 204453
+        },
+        {
+          "elapsed_ms": 90,
+          "incoming": [
+            24,
+            -254,
+            240,
+            66
+          ],
+          "instructions": 204491
+        },
+        {
+          "elapsed_ms": 120,
+          "incoming": [
+            24,
+            -210,
+            240,
+            110
+          ],
+          "instructions": 204453
+        },
+        {
+          "elapsed_ms": 150,
+          "incoming": [
+            24,
+            -160,
+            240,
+            160
+          ],
+          "instructions": 204453
+        },
+        {
+          "elapsed_ms": 180,
+          "incoming": [
+            24,
+            -112,
+            240,
+            208
+          ],
+          "instructions": 204453
+        },
+        {
+          "elapsed_ms": 210,
+          "incoming": [
+            24,
+            -66,
+            240,
+            254
+          ],
+          "instructions": 204491
+        },
+        {
+          "elapsed_ms": 240,
+          "incoming": [
+            24,
+            -32,
+            240,
+            288
+          ],
+          "instructions": 204453
+        },
+        {
+          "elapsed_ms": 270,
+          "incoming": [
+            24,
+            -8,
+            240,
+            312
+          ],
+          "instructions": 204483
+        },
+        {
+          "elapsed_ms": 300,
+          "incoming": [
+            24,
+            0,
+            240,
+            320
+          ],
+          "instructions": 188965
+        }
+      ]
+    },
+    {
+      "profile": "original_drawing",
+      "direction": 1,
+      "period_ms": 30,
+      "timed_updates": 10,
+      "completion_ms": 300,
+      "instructions": 2029209,
+      "frames": [
+        {
+          "elapsed_ms": 30,
+          "incoming": [
+            24,
+            312,
+            240,
+            632
+          ],
+          "instructions": 204494
+        },
+        {
+          "elapsed_ms": 60,
+          "incoming": [
+            24,
+            290,
+            240,
+            610
+          ],
+          "instructions": 204455
+        },
+        {
+          "elapsed_ms": 90,
+          "incoming": [
+            24,
+            254,
+            240,
+            574
+          ],
+          "instructions": 204494
+        },
+        {
+          "elapsed_ms": 120,
+          "incoming": [
+            24,
+            210,
+            240,
+            530
+          ],
+          "instructions": 204455
+        },
+        {
+          "elapsed_ms": 150,
+          "incoming": [
+            24,
+            160,
+            240,
+            480
+          ],
+          "instructions": 204455
+        },
+        {
+          "elapsed_ms": 180,
+          "incoming": [
+            24,
+            112,
+            240,
+            432
+          ],
+          "instructions": 204455
+        },
+        {
+          "elapsed_ms": 210,
+          "incoming": [
+            24,
+            66,
+            240,
+            386
+          ],
+          "instructions": 204494
+        },
+        {
+          "elapsed_ms": 240,
+          "incoming": [
+            24,
+            32,
+            240,
+            352
+          ],
+          "instructions": 204455
+        },
+        {
+          "elapsed_ms": 270,
+          "incoming": [
+            24,
+            8,
+            240,
+            328
+          ],
+          "instructions": 204485
+        },
+        {
+          "elapsed_ms": 300,
+          "incoming": [
+            24,
+            0,
+            240,
+            320
+          ],
+          "instructions": 188967
+        }
+      ]
+    },
+    {
+      "profile": "drawing_preview_1",
+      "direction": 0,
+      "period_ms": 30,
+      "timed_updates": 10,
+      "completion_ms": 300,
+      "instructions": 813538,
+      "frames": [
+        {
+          "elapsed_ms": 30,
+          "incoming": [
+            24,
+            -312,
+            240,
+            8
+          ],
+          "instructions": 78347
+        },
+        {
+          "elapsed_ms": 60,
+          "incoming": [
+            24,
+            -290,
+            240,
+            30
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 90,
+          "incoming": [
+            24,
+            -254,
+            240,
+            66
+          ],
+          "instructions": 85259
+        },
+        {
+          "elapsed_ms": 120,
+          "incoming": [
+            24,
+            -210,
+            240,
+            110
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 150,
+          "incoming": [
+            24,
+            -160,
+            240,
+            160
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 180,
+          "incoming": [
+            24,
+            -112,
+            240,
+            208
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 210,
+          "incoming": [
+            24,
+            -66,
+            240,
+            254
+          ],
+          "instructions": 85259
+        },
+        {
+          "elapsed_ms": 240,
+          "incoming": [
+            24,
+            -32,
+            240,
+            288
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 270,
+          "incoming": [
+            24,
+            -8,
+            240,
+            312
+          ],
+          "instructions": 78339
+        },
+        {
+          "elapsed_ms": 300,
+          "incoming": [
+            24,
+            0,
+            240,
+            320
+          ],
+          "instructions": 60229
+        }
+      ]
+    },
+    {
+      "profile": "drawing_preview_1",
+      "direction": 1,
+      "period_ms": 30,
+      "timed_updates": 10,
+      "completion_ms": 300,
+      "instructions": 813561,
+      "frames": [
+        {
+          "elapsed_ms": 30,
+          "incoming": [
+            24,
+            312,
+            240,
+            632
+          ],
+          "instructions": 78350
+        },
+        {
+          "elapsed_ms": 60,
+          "incoming": [
+            24,
+            290,
+            240,
+            610
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 90,
+          "incoming": [
+            24,
+            254,
+            240,
+            574
+          ],
+          "instructions": 85262
+        },
+        {
+          "elapsed_ms": 120,
+          "incoming": [
+            24,
+            210,
+            240,
+            530
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 150,
+          "incoming": [
+            24,
+            160,
+            240,
+            480
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 180,
+          "incoming": [
+            24,
+            112,
+            240,
+            432
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 210,
+          "incoming": [
+            24,
+            66,
+            240,
+            386
+          ],
+          "instructions": 85262
+        },
+        {
+          "elapsed_ms": 240,
+          "incoming": [
+            24,
+            32,
+            240,
+            352
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 270,
+          "incoming": [
+            24,
+            8,
+            240,
+            328
+          ],
+          "instructions": 78341
+        },
+        {
+          "elapsed_ms": 300,
+          "incoming": [
+            24,
+            0,
+            240,
+            320
+          ],
+          "instructions": 60231
+        }
+      ]
+    },
+    {
+      "profile": "smooth_drawing_preview_2",
+      "direction": 0,
+      "period_ms": 17,
+      "timed_updates": 18,
+      "completion_ms": 306,
+      "instructions": 1398702,
+      "frames": [
+        {
+          "elapsed_ms": 17,
+          "incoming": [
+            24,
+            -318,
+            240,
+            2
+          ],
+          "instructions": 67925
+        },
+        {
+          "elapsed_ms": 34,
+          "incoming": [
+            24,
+            -310,
+            240,
+            10
+          ],
+          "instructions": 78309
+        },
+        {
+          "elapsed_ms": 51,
+          "incoming": [
+            24,
+            -298,
+            240,
+            22
+          ],
+          "instructions": 78347
+        },
+        {
+          "elapsed_ms": 68,
+          "incoming": [
+            24,
+            -282,
+            240,
+            38
+          ],
+          "instructions": 78309
+        },
+        {
+          "elapsed_ms": 85,
+          "incoming": [
+            24,
+            -262,
+            240,
+            58
+          ],
+          "instructions": 78309
+        },
+        {
+          "elapsed_ms": 102,
+          "incoming": [
+            24,
+            -238,
+            240,
+            82
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 119,
+          "incoming": [
+            24,
+            -212,
+            240,
+            108
+          ],
+          "instructions": 78347
+        },
+        {
+          "elapsed_ms": 136,
+          "incoming": [
+            24,
+            -184,
+            240,
+            136
+          ],
+          "instructions": 78309
+        },
+        {
+          "elapsed_ms": 153,
+          "incoming": [
+            24,
+            -156,
+            240,
+            164
+          ],
+          "instructions": 78347
+        },
+        {
+          "elapsed_ms": 170,
+          "incoming": [
+            24,
+            -126,
+            240,
+            194
+          ],
+          "instructions": 85259
+        },
+        {
+          "elapsed_ms": 187,
+          "incoming": [
+            24,
+            -100,
+            240,
+            220
+          ],
+          "instructions": 78309
+        },
+        {
+          "elapsed_ms": 204,
+          "incoming": [
+            24,
+            -74,
+            240,
+            246
+          ],
+          "instructions": 78347
+        },
+        {
+          "elapsed_ms": 221,
+          "incoming": [
+            24,
+            -52,
+            240,
+            268
+          ],
+          "instructions": 78347
+        },
+        {
+          "elapsed_ms": 238,
+          "incoming": [
+            24,
+            -32,
+            240,
+            288
+          ],
+          "instructions": 85259
+        },
+        {
+          "elapsed_ms": 255,
+          "incoming": [
+            24,
+            -18,
+            240,
+            302
+          ],
+          "instructions": 85221
+        },
+        {
+          "elapsed_ms": 272,
+          "incoming": [
+            24,
+            -8,
+            240,
+            312
+          ],
+          "instructions": 78339
+        },
+        {
+          "elapsed_ms": 289,
+          "incoming": [
+            24,
+            -2,
+            240,
+            318
+          ],
+          "instructions": 67969
+        },
+        {
+          "elapsed_ms": 306,
+          "incoming": [
+            24,
+            0,
+            240,
+            320
+          ],
+          "instructions": 60229
+        }
+      ]
+    },
+    {
+      "profile": "smooth_drawing_preview_2",
+      "direction": 1,
+      "period_ms": 17,
+      "timed_updates": 18,
+      "completion_ms": 306,
+      "instructions": 1398745,
+      "frames": [
+        {
+          "elapsed_ms": 17,
+          "incoming": [
+            24,
+            318,
+            240,
+            638
+          ],
+          "instructions": 67927
+        },
+        {
+          "elapsed_ms": 34,
+          "incoming": [
+            24,
+            310,
+            240,
+            630
+          ],
+          "instructions": 78311
+        },
+        {
+          "elapsed_ms": 51,
+          "incoming": [
+            24,
+            298,
+            240,
+            618
+          ],
+          "instructions": 78350
+        },
+        {
+          "elapsed_ms": 68,
+          "incoming": [
+            24,
+            282,
+            240,
+            602
+          ],
+          "instructions": 78311
+        },
+        {
+          "elapsed_ms": 85,
+          "incoming": [
+            24,
+            262,
+            240,
+            582
+          ],
+          "instructions": 78311
+        },
+        {
+          "elapsed_ms": 102,
+          "incoming": [
+            24,
+            238,
+            240,
+            558
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 119,
+          "incoming": [
+            24,
+            212,
+            240,
+            532
+          ],
+          "instructions": 78350
+        },
+        {
+          "elapsed_ms": 136,
+          "incoming": [
+            24,
+            184,
+            240,
+            504
+          ],
+          "instructions": 78311
+        },
+        {
+          "elapsed_ms": 153,
+          "incoming": [
+            24,
+            156,
+            240,
+            476
+          ],
+          "instructions": 78350
+        },
+        {
+          "elapsed_ms": 170,
+          "incoming": [
+            24,
+            126,
+            240,
+            446
+          ],
+          "instructions": 85262
+        },
+        {
+          "elapsed_ms": 187,
+          "incoming": [
+            24,
+            100,
+            240,
+            420
+          ],
+          "instructions": 78311
+        },
+        {
+          "elapsed_ms": 204,
+          "incoming": [
+            24,
+            74,
+            240,
+            394
+          ],
+          "instructions": 78350
+        },
+        {
+          "elapsed_ms": 221,
+          "incoming": [
+            24,
+            52,
+            240,
+            372
+          ],
+          "instructions": 78350
+        },
+        {
+          "elapsed_ms": 238,
+          "incoming": [
+            24,
+            32,
+            240,
+            352
+          ],
+          "instructions": 85262
+        },
+        {
+          "elapsed_ms": 255,
+          "incoming": [
+            24,
+            18,
+            240,
+            338
+          ],
+          "instructions": 85223
+        },
+        {
+          "elapsed_ms": 272,
+          "incoming": [
+            24,
+            8,
+            240,
+            328
+          ],
+          "instructions": 78341
+        },
+        {
+          "elapsed_ms": 289,
+          "incoming": [
+            24,
+            2,
+            240,
+            322
+          ],
+          "instructions": 67971
+        },
+        {
+          "elapsed_ms": 306,
+          "incoming": [
+            24,
+            0,
+            240,
+            320
+          ],
+          "instructions": 60231
+        }
+      ]
+    }
+  ],
+  "matching_time_geometry_cases": 122,
+  "reversal_cases": [
+    {
+      "direction": 0,
+      "reversed_at_ms": 40
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 140
+    },
+    {
+      "direction": 0,
+      "reversed_at_ms": 260
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 40
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 140
+    },
+    {
+      "direction": 1,
+      "reversed_at_ms": 260
+    }
+  ],
+  "cancellation_cases": 16,
+  "guard_cases": 486,
+  "delayed_callbacks": [
+    {
+      "callback_gap_ms": 25,
+      "timed_updates": 12
+    },
+    {
+      "callback_gap_ms": 50,
+      "timed_updates": 6
+    },
+    {
+      "callback_gap_ms": 100,
+      "timed_updates": 3
+    }
+  ],
+  "device_access": false,
+  "limits": [
+    "Clock, scheduler, display notifications and external UI calls simulated.",
+    "Instruction totals exclude display transfer and storage wait costs.",
+    "Physical frame rate, boot, audio playback and battery use are unmeasured."
+  ]
+}

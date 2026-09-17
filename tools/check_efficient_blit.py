@@ -8,18 +8,18 @@ from pathlib import Path
 import argparse,hashlib,json,random,struct
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.arm_const import *
-p=argparse.ArgumentParser(description=__doc__)
-p.add_argument('--baseline',type=Path,required=True)
-p.add_argument('--candidate',type=Path,required=True)
-p.add_argument('--snapshot-prefix',type=Path,required=True)
-p.add_argument('--report',type=Path,required=True)
-args=p.parse_args()
-BASE=args.baseline.read_bytes();NEW=args.candidate.read_bytes()
-assert hashlib.sha256(BASE).hexdigest()=='9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8'
-assert hashlib.sha256(NEW).hexdigest()=='ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724'
-prefix=args.snapshot_prefix.read_bytes()
-assert hashlib.sha256(prefix).hexdigest()=='6f5012f98469a8c74070876b302ca297b0d001845d6bc554af58b2b2b707f285'
-SNAP=prefix[0xd64000:0x2d64000]
+EFFICIENT = 'ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724'
+SMOOTH_DRAWING = '53bfd968ba80f83c359faa5d7a1325f9a9744a875ffea0d0ecc12b103d24944d'
+
+def load_images(baseline, candidate, snapshot):
+    global BASE, NEW, SNAP
+    BASE, NEW = baseline.read_bytes(), candidate.read_bytes()
+    assert hashlib.sha256(BASE).hexdigest() == '9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8'
+    assert hashlib.sha256(NEW).hexdigest() in (EFFICIENT, SMOOTH_DRAWING)
+    prefix = snapshot.read_bytes()
+    assert hashlib.sha256(prefix).hexdigest() == '6f5012f98469a8c74070876b302ca297b0d001845d6bc554af58b2b2b707f285'
+    SNAP = prefix[0xd64000:0x2d64000]
+
 OWNER,OUTGOING,INCOMING=0x11d3071c,0x11ded90c,0x11ddbb2c
 STOP,STACK=0x40000000,0x20008000
 RECT=(24,0,240,320)
@@ -143,64 +143,81 @@ class Blit(Machine):
   assert self.u.reg_read(UC_ARM_REG_PC)==STOP,hex(self.u.reg_read(UC_ARM_REG_PC))
   assert self.u.reg_read(UC_ARM_REG_SP)==STACK
 
-rng=random.Random(0xE771C1E7)
-results=[]
-# Replay real start/frame/reverse and clipping against the private saved UI.
-for direction in (0,1):
+def validate(report_path):
+ rng=random.Random(0xE771C1E7)
+ results=[]
+ # Replay real start/frame/reverse and clipping against the private saved UI.
+ for direction in (0,1):
+  a,b=Blit(BASE),Blit(NEW)
+  for m in (a,b):m.put(0x20001004,9);m.start(direction)
+  for t in (15,30,45,50,75,90,110,150,190,220,260,299,300):
+   counts=[]
+   for m in (a,b):
+    old=m.instructions;m.frame(t);counts.append(m.instructions-old)
+   left=bytearray(a.u.mem_read(0x10000000,0x2000000));right=bytearray(b.u.mem_read(0x10000000,0x2000000))
+   # The only intended UI-state difference is the requested timer period.
+   period=OWNER+0xc0-0x10000000
+   expected=17 if hashlib.sha256(NEW).hexdigest()==SMOOTH_DRAWING else 30
+   assert b.word(OWNER+0xc0)==expected and a.word(OWNER+0xc0)==30
+   right[period:period+4]=left[period:period+4]
+   assert left==right,('saved UI mismatch',direction,t)
+   results.append({'kind':'saved_menu','direction':direction,'elapsed_ms':t,'original_instructions':counts[0],'candidate_instructions':counts[1]})
+ print('Saved menu pixel/state equality passed',len(results),flush=True)
+ # Execute the original complete clipping + BitBlt entry, replacing only external
+ # before/after display notifications; compare whole pixel buffers and canaries.
  a,b=Blit(BASE),Blit(NEW)
- for m in (a,b):m.put(0x20001004,9);m.start(direction)
- for t in (15,30,45,50,75,90,110,150,190,220,260,299,300):
-  counts=[]
-  for m in (a,b):
-   old=m.instructions;m.frame(t);counts.append(m.instructions-old)
-  assert bytes(a.u.mem_read(0x10000000,0x2000000))==bytes(b.u.mem_read(0x10000000,0x2000000)),('saved UI mismatch',direction,t)
-  results.append({'kind':'saved_menu','direction':direction,'elapsed_ms':t,'original_instructions':counts[0],'candidate_instructions':counts[1]})
-print('Saved menu pixel/state equality passed',len(results),flush=True)
-# Execute the original complete clipping + BitBlt entry, replacing only external
-# before/after display notifications; compare whole pixel buffers and canaries.
-a,b=Blit(BASE),Blit(NEW)
-def draw(m,c,seed):
- depth,w,h,dx,dy,pad,overlap=c
- pitch=((w*depth+7)//8+3)&~3;pitch+=pad
- size=pitch*h
- assert 0<size<0x100000
- src=0x11000000;dst=src+overlap if overlap is not None else 0x11200000
- # One encompassing region also checks outside-rectangle bytes and overlaps.
- lo=min(src,dst)-64;hi=max(src,dst)+size+64
- rand=random.Random(seed);data=rand.randbytes(hi-lo)
- m.u.mem_write(lo,data)
- fmt={1:1,2:2,4:4,8:8,16:0x565,32:0x888}[depth]
- desc=lambda p:struct.pack('<9I',p,pitch,depth,{1:0,2:1,4:2,8:3,16:4,32:5}[depth],fmt,0,0,h,w)
- m.u.mem_write(0x20002000,desc(src));m.u.mem_write(0x20002040,desc(dst))
- # Different source/destination rectangles trigger clipping, edges, and shifts.
- s=(0,0,h,w);d=(dy,dx,h+dy,w+dx)
- m.setrect(0x20002100,s);m.setrect(0x20002110,d)
- m.setrect(0x20002120,(0,0,h,w))
- m.u.mem_write(0x20002200,bytes.fromhex('ffffffff00000000'))
- n=m.instructions
- m.call(0x1216a0,0x20002000,0x20002040,0x20002100,0x20002110,stack=(0x20002200,0x20002204,0,0x20002120))
- return bytes(m.u.mem_read(lo,hi-lo)),m.instructions-n
-cases=[]
-# Pixel formats, pitches, source/destination overlaps and both edge directions.
-for depth in (1,2,4,8,16,32):
- for dx in (-17,-3,-2,-1,0,1,2,3,17):
-  cases.append((depth,43,7,dx,1,0,None))
-for depth in (8,16,32):
- for overlap in (-64,-32,-28,-8,-4,-2,0,2,4,8,28,32,64):
-  for dx in (0,1):cases.append((depth,43,6,dx,-1,0,overlap))
-for _ in range(180):
- depth=rng.choice((1,2,4,8,16,32));w=rng.randint(1,80);h=rng.randint(1,18)
- cases.append((depth,w,h,rng.randint(-w,w),rng.randint(-h,h),rng.choice((0,2,4)),rng.choice((None,None,None,-8,0,2,8,64))))
-# Exact native thumbnail dimensions, full menu size, both alignments.
-for w,h in ((100,100),(200,200),(320,216)):
- for dx in (0,1,2,-1,-2):cases.append((16,w,h,dx,0,0,None))
-for idx,c in enumerate(cases):
- x,n=draw(a,c,idx);y,k=draw(b,c,idx)
- assert x==y,('pixel mismatch',idx,c,next(i for i,(j,l) in enumerate(zip(x,y)) if j!=l))
- results.append({'kind':'copy','case':list(c),'original_instructions':n,'candidate_instructions':k})
- if idx%80==79:print('Pixel comparisons passed',idx+1,flush=True)
-report={'status':'Offline differential checks passed; not installed','candidate_sha256':hashlib.sha256(NEW).hexdigest(),'cases':len(results),'results':results,'limits':['The clock, timer scheduler and external display notifications are simulated.','Instruction counts are not physical latency, FPS or energy measurements.','Art-file reads and storage wait times are unchanged.','Full boot, actual music playback and battery runtime are not validated.'],'device_access':False}
-args.report.write_text(json.dumps(report,indent=2)+'\n')
-print('PASS',len(results),'cases')
-for r in results:
- if r['kind']=='copy' and r['case'][0]==16 and r['case'][1] in (100,200,320):print(r)
+ def draw(m,c,seed):
+  depth,w,h,dx,dy,pad,overlap=c
+  pitch=((w*depth+7)//8+3)&~3;pitch+=pad
+  size=pitch*h
+  assert 0<size<0x100000
+  src=0x11000000;dst=src+overlap if overlap is not None else 0x11200000
+  # One encompassing region also checks outside-rectangle bytes and overlaps.
+  lo=min(src,dst)-64;hi=max(src,dst)+size+64
+  rand=random.Random(seed);data=rand.randbytes(hi-lo)
+  m.u.mem_write(lo,data)
+  fmt={1:1,2:2,4:4,8:8,16:0x565,32:0x888}[depth]
+  desc=lambda p:struct.pack('<9I',p,pitch,depth,{1:0,2:1,4:2,8:3,16:4,32:5}[depth],fmt,0,0,h,w)
+  m.u.mem_write(0x20002000,desc(src));m.u.mem_write(0x20002040,desc(dst))
+  # Different source/destination rectangles trigger clipping, edges, and shifts.
+  s=(0,0,h,w);d=(dy,dx,h+dy,w+dx)
+  m.setrect(0x20002100,s);m.setrect(0x20002110,d)
+  m.setrect(0x20002120,(0,0,h,w))
+  m.u.mem_write(0x20002200,bytes.fromhex('ffffffff00000000'))
+  n=m.instructions
+  m.call(0x1216a0,0x20002000,0x20002040,0x20002100,0x20002110,stack=(0x20002200,0x20002204,0,0x20002120))
+  return bytes(m.u.mem_read(lo,hi-lo)),m.instructions-n
+ cases=[]
+ # Pixel formats, pitches, source/destination overlaps and both edge directions.
+ for depth in (1,2,4,8,16,32):
+  for dx in (-17,-3,-2,-1,0,1,2,3,17):
+   cases.append((depth,43,7,dx,1,0,None))
+ for depth in (8,16,32):
+  for overlap in (-64,-32,-28,-8,-4,-2,0,2,4,8,28,32,64):
+   for dx in (0,1):cases.append((depth,43,6,dx,-1,0,overlap))
+ for _ in range(180):
+  depth=rng.choice((1,2,4,8,16,32));w=rng.randint(1,80);h=rng.randint(1,18)
+  cases.append((depth,w,h,rng.randint(-w,w),rng.randint(-h,h),rng.choice((0,2,4)),rng.choice((None,None,None,-8,0,2,8,64))))
+ # Exact native thumbnail dimensions, full menu size, both alignments.
+ for w,h in ((100,100),(200,200),(320,216)):
+  for dx in (0,1,2,-1,-2):cases.append((16,w,h,dx,0,0,None))
+ for idx,c in enumerate(cases):
+  x,n=draw(a,c,idx);y,k=draw(b,c,idx)
+  assert x==y,('pixel mismatch',idx,c,next(i for i,(j,l) in enumerate(zip(x,y)) if j!=l))
+  results.append({'kind':'copy','case':list(c),'original_instructions':n,'candidate_instructions':k})
+  if idx%80==79:print('Pixel comparisons passed',idx+1,flush=True)
+ report={'status':'Offline differential checks passed; not installed','candidate_sha256':hashlib.sha256(NEW).hexdigest(),'cases':len(results),'results':results,'limits':['The clock, timer scheduler and external display notifications are simulated.','Instruction counts are not physical latency, FPS or energy measurements.','Art-file reads and storage wait times are unchanged.','Full boot, actual music playback and battery runtime are not validated.'],'device_access':False}
+ report_path.write_text(json.dumps(report,indent=2)+'\n')
+ print('PASS',len(results),'cases')
+ for r in results:
+  if r['kind']=='copy' and r['case'][0]==16 and r['case'][1] in (100,200,320):print(r)
+
+if __name__ == '__main__':
+ p=argparse.ArgumentParser(description=__doc__)
+ p.add_argument('--baseline',type=Path,required=True)
+ p.add_argument('--candidate',type=Path,required=True)
+ p.add_argument('--snapshot-prefix',type=Path,required=True)
+ p.add_argument('--report',type=Path,required=True)
+ args=p.parse_args()
+ load_images(args.baseline,args.candidate,args.snapshot_prefix)
+ validate(args.report)

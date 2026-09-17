@@ -46,10 +46,11 @@ with the same connection and restart steps.
 
 ## Drawing optimization preview
 
-[Version 0.5.0-preview.1](docs/efficient-drawing.md) replaces two costly pixel-copy
-loops used by menu and image drawing. It keeps Apple's original menu timing and
-CPU policy. Offline comparisons show identical pixels with fewer instructions;
-physical smoothness, slow artwork reads and battery effects remain unverified.
+[Version 0.5.0-preview.2](docs/efficient-drawing.md) combines the optimized pixel-copy
+loops with **17 ms animation updates** (about 59 requested updates per second).
+It keeps Apple's 300 ms slide duration and original CPU policy. Under ideal
+scheduling it draws 18 timed steps instead of 10. Offline comparisons preserve
+pixels and motion; actual displayed FPS and battery effects remain unmeasured.
 The preview is opt-in; the stable download above is unchanged. Use the preview
 release's own standard or restore launcher to undo it.
 
