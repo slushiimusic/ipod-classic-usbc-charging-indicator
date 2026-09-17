@@ -46,15 +46,16 @@ with the same connection and restart steps.
 
 ## Drawing optimization preview
 
-[Version 0.5.0-preview.3](docs/menu-start.md) targets the pause before menu movement.
-It uses Apple's existing visible-screen capture path to avoid redrawing the
-outgoing menu, retaining the optimized pixel copies and **17 ms animation
-updates** from preview 2. Apple's 300 ms duration and original CPU policy remain.
+[Version 0.5.0-preview.4](docs/single-paint.md) tries a further reduction in the
+work before menu movement. It skips a redundant preparation redraw only for a
+pending, active, captured horizontal slide. The optimized copies, 17 ms requested
+updates, 300 ms duration and original CPU policy are retained.
 
-Offline replay shows matching pixels with less preparation work. The effect on
-physical press-to-animation delay and battery life remains unmeasured. The preview
-is opt-in; stable downloads above are unchanged. This release includes a direct
-return to preview 2, as well as standard and Apple-restoration launchers.
+Preview 3 was reported to feel only marginally faster; the remaining pause has
+not been established as fixed. This preview is opt-in and needs physical feedback.
+Stable downloads above are unchanged. The included previous-preview launcher
+returns directly to preview 3; standard and Apple-restoration launchers are also
+included. Battery impact and physical frame rate remain unmeasured.
 
 ## What changed
 

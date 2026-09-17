@@ -8,10 +8,10 @@ import subprocess
 import sys
 import tempfile
 import uuid
-from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V4, RESPONSIVE, SMOOTH_V2, FAST, EFFICIENT_V2, EFFICIENT_V3, plan_for, require, sha, transact
+from .firmware import PREFIX, OS_OFFSET, OS_LENGTH, STOCK, V4, RESPONSIVE, SMOOTH_V2, FAST, EFFICIENT_V3, EFFICIENT_V4, plan_for, require, sha, transact
 from .hosts import MacHost, WindowsHost
 
-VERSION = '0.5.0-preview.3'
+VERSION = '0.5.0-preview.4'
 
 
 def save(path, data):
@@ -32,7 +32,7 @@ def run(host, mode, output):
     token = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
     receipt = {'release_version': VERSION, 'mode': mode, 'started': token, 'writes_attempted': False, 'verified': False,
                'ejected': False, 'original_sha256': STOCK,
-               'candidate_sha256': {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'efficient': EFFICIENT_V3, 'drawing_previous': EFFICIENT_V2, 'restore': STOCK}.get(mode, V4)}
+               'candidate_sha256': {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'efficient': EFFICIENT_V4, 'drawing_previous': EFFICIENT_V3, 'restore': STOCK}.get(mode, V4)}
     device = None
     output.mkdir(parents=True, exist_ok=True)
     # Ensure the recovery destination is writable before dismounting the iPod.
@@ -125,7 +125,7 @@ def main():
     args = p.parse_args()
     if args.self_test:
         from .firmware import manifests
-        require(len(manifests()) == 10, 'Missing patch data')
+        require(len(manifests()) == 11, 'Missing patch data')
         print(f'Installer {VERSION}: bundled patch data loaded. No device access.')
         return 0
     require(sys.platform in ('darwin', 'win32'), 'Installation requires macOS or Windows')

@@ -21,6 +21,7 @@ FAST = '13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b'
 EFFICIENT = 'ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724'
 EFFICIENT_V2 = '53bfd968ba80f83c359faa5d7a1325f9a9744a875ffea0d0ecc12b103d24944d'
 EFFICIENT_V3 = '93a0cc76e089b5edeafed0ea2b0177c912ffbcc0ff3ba9b7d75eb0b47828600e'
+EFFICIENT_V4 = 'd95c3ded58467b7778575d33d8e3f2065b257534ca6909134e8c08d72c932dd6'
 DIRECTORY_SHA = '2f81b47602a6d172ddfff3a706461d13f87da8f62eac72b85fb484625098b392'
 RESOURCE_SHA = '080d43f7cf87fb4b4a3f079ce7f35731a217031bf59f1fc80cb87fa49821af11'
 OS_SECTORS = {0, 0x800, 0xfe000, 0x11d800, 0x18a800, 0x1ae000, 0x1d8800, 0x1d9000, 0x202000, 0x202800, 0x203000, 0x735800}
@@ -39,7 +40,7 @@ def manifests(root=None):
     root = root or Path(__file__).resolve().parent.parent / 'patches'
     result = {}
     for name, expected in [('v2', V2), ('v3', V3), ('responsive', RESPONSIVE), ('smooth', SMOOTH),
-                           ('v4', V4), ('smooth_v2', SMOOTH_V2), ('fast', FAST), ('efficient', EFFICIENT), ('efficient_v2', EFFICIENT_V2), ('efficient_v3', EFFICIENT_V3)]:
+                           ('v4', V4), ('smooth_v2', SMOOTH_V2), ('fast', FAST), ('efficient', EFFICIENT), ('efficient_v2', EFFICIENT_V2), ('efficient_v3', EFFICIENT_V3), ('efficient_v4', EFFICIENT_V4)]:
         m = json.loads((root / (name + '.json')).read_text())
         require(m['original_sha256'] == STOCK and m['target_sha256'] == expected,
                 'Patch manifest identity mismatch')
@@ -82,7 +83,7 @@ def plan_for(prefix, mode='install', patch_set=None):
     require(sha(prefix[0x75b000:0xc5b800]) == RESOURCE_SHA, 'Apple resource image mismatch')
     current = prefix[OS_OFFSET:OS_OFFSET + OS_LENGTH]
     observed = sha(current)
-    require(observed in (STOCK, V2, V3, RESPONSIVE, SMOOTH, V4, SMOOTH_V2, FAST, EFFICIENT, EFFICIENT_V2, EFFICIENT_V3),
+    require(observed in (STOCK, V2, V3, RESPONSIVE, SMOOTH, V4, SMOOTH_V2, FAST, EFFICIENT, EFFICIENT_V2, EFFICIENT_V3, EFFICIENT_V4),
             'Unsupported firmware. Requires exact iPod Video 5G Apple 1.3 or a recognized project patch.')
     directory = bytearray(prefix[DIR_BLOCK:DIR_BLOCK + BLOCK])
     require(struct.unpack_from('<I', directory, CHECKSUM)[0] == sum(current) & 0xffffffff,
@@ -91,7 +92,7 @@ def plan_for(prefix, mode='install', patch_set=None):
     require(sha(directory) == DIRECTORY_SHA, 'Unsupported firmware directory layout')
     patch_set = patch_set or manifests()
     original = current if observed == STOCK else transform(current, patch_set[observed], reverse=True)
-    target = {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'efficient': EFFICIENT_V3, 'drawing_previous': EFFICIENT_V2}.get(mode, V4)
+    target = {'responsive': RESPONSIVE, 'smooth': SMOOTH_V2, 'fast': FAST, 'efficient': EFFICIENT_V4, 'drawing_previous': EFFICIENT_V3}.get(mode, V4)
     wanted = original if mode == 'restore' else transform(original, patch_set[target])
     struct.pack_into('<I', directory, CHECKSUM, sum(wanted) & 0xffffffff)
     plan = []

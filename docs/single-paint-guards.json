@@ -1,0 +1,68 @@
+{
+  "guards": 432,
+  "dirty_cases": [
+    {
+      "direction": 0,
+      "dirty_rect": [
+        0,
+        0,
+        240,
+        320
+      ],
+      "pixels_and_state_match": true
+    },
+    {
+      "direction": 0,
+      "dirty_rect": [
+        0,
+        0,
+        24,
+        320
+      ],
+      "pixels_and_state_match": true
+    },
+    {
+      "direction": 0,
+      "dirty_rect": [
+        24,
+        0,
+        60,
+        320
+      ],
+      "pixels_and_state_match": true
+    },
+    {
+      "direction": 1,
+      "dirty_rect": [
+        0,
+        0,
+        240,
+        320
+      ],
+      "pixels_and_state_match": true
+    },
+    {
+      "direction": 1,
+      "dirty_rect": [
+        0,
+        0,
+        24,
+        320
+      ],
+      "pixels_and_state_match": true
+    },
+    {
+      "direction": 1,
+      "dirty_rect": [
+        24,
+        0,
+        60,
+        320
+      ],
+      "pixels_and_state_match": true
+    }
+  ],
+  "normal_callbacks": 2,
+  "device_access": false,
+  "full_candidate_sha256": "d95c3ded58467b7778575d33d8e3f2065b257534ca6909134e8c08d72c932dd6"
+}
