@@ -1,0 +1,54 @@
+{
+  "status": "Offline native preparation and pixel comparisons passed",
+  "candidate_sha256": "93a0cc76e089b5edeafed0ea2b0177c912ffbcc0ff3ba9b7d75eb0b47828600e",
+  "preparation_cases": [
+    {
+      "direction": 0,
+      "caller_requested_capture": 0,
+      "previous_preparation_instructions": 1756247,
+      "candidate_preparation_instructions": 950204,
+      "previous_root_paints": 3,
+      "candidate_root_paints": 2,
+      "pixel_match": true
+    },
+    {
+      "direction": 0,
+      "caller_requested_capture": 1,
+      "previous_preparation_instructions": 950191,
+      "candidate_preparation_instructions": 950204,
+      "previous_root_paints": 2,
+      "candidate_root_paints": 2,
+      "pixel_match": true
+    },
+    {
+      "direction": 1,
+      "caller_requested_capture": 0,
+      "previous_preparation_instructions": 1756252,
+      "candidate_preparation_instructions": 950209,
+      "previous_root_paints": 3,
+      "candidate_root_paints": 2,
+      "pixel_match": true
+    },
+    {
+      "direction": 1,
+      "caller_requested_capture": 1,
+      "previous_preparation_instructions": 950196,
+      "candidate_preparation_instructions": 950209,
+      "previous_root_paints": 2,
+      "candidate_root_paints": 2,
+      "pixel_match": true
+    }
+  ],
+  "animation_frame_comparisons": 72,
+  "entry_guard_cases": 96,
+  "cadence_guard_cases": 486,
+  "reversal_cases": 3,
+  "cancellation_cases": 2,
+  "device_access": false,
+  "limits": [
+    "One saved UI graph; not every menu or physical input sequence is covered.",
+    "External OS/UI notifications, clock and scheduling are modeled.",
+    "Current visible pixels may precede a pending content update; the outgoing image intentionally captures what is already displayed.",
+    "No physical input latency, display FPS, boot, music playback or battery measurement."
+  ]
+}

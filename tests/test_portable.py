@@ -198,7 +198,9 @@ class FirmwareTests(unittest.TestCase):
         efficient[0x11dc10:0x11dc14] = b'half'
         efficient2 = bytearray(efficient)
         efficient2[0x2028c8:0x2028cc] = b'17ms'
-        cls.images = [a, bytes(b), bytes(c), bytes(d), bytes(e), bytes(v4), bytes(smooth2), bytes(fast), bytes(efficient), bytes(efficient2)]
+        efficient3 = bytearray(efficient2)
+        efficient3[0x2023a4:0x2023a8] = b'cap!'
+        cls.images = [a, bytes(b), bytes(c), bytes(d), bytes(e), bytes(v4), bytes(smooth2), bytes(fast), bytes(efficient), bytes(efficient2), bytes(efficient3)]
         cls.hashes = [f.sha(x) for x in cls.images]
         cls.patches = {h: dict(original_sha256=cls.hashes[0], target_sha256=h,
                               changes=[dict(offset=0x18ad4c, before='00000000', after=image[0x18ad4c:0x18ad50].hex())])
@@ -213,6 +215,8 @@ class FirmwareTests(unittest.TestCase):
             dict(offset=0x11dc10, before='00000000', after=b'half'.hex())]
         cls.patches[cls.hashes[9]]['changes'] = copy.deepcopy(cls.patches[cls.hashes[8]]['changes'])
         cls.patches[cls.hashes[9]]['changes'].append(dict(offset=0x2028c8, before='00000000', after=b'17ms'.hex()))
+        cls.patches[cls.hashes[10]]['changes'] = copy.deepcopy(cls.patches[cls.hashes[9]]['changes'])
+        cls.patches[cls.hashes[10]]['changes'].insert(-1, dict(offset=0x2023a4, before='00000000', after=b'cap!'.hex()))
         prefix = bytearray(f.PREFIX)
         prefix[510:512] = b'\x55\xaa'
         struct.pack_into('<II', prefix, 454, 63, 48132)
@@ -223,7 +227,7 @@ class FirmwareTests(unittest.TestCase):
     def constants(self):
         return patch.multiple(f, STOCK=self.hashes[0], V2=self.hashes[1], V3=self.hashes[2], RESPONSIVE=self.hashes[3],
                               SMOOTH=self.hashes[4],
-                              V4=self.hashes[5], SMOOTH_V2=self.hashes[6], FAST=self.hashes[7], EFFICIENT=self.hashes[8], EFFICIENT_V2=self.hashes[9],
+                              V4=self.hashes[5], SMOOTH_V2=self.hashes[6], FAST=self.hashes[7], EFFICIENT=self.hashes[8], EFFICIENT_V2=self.hashes[9], EFFICIENT_V3=self.hashes[10],
                               RESOURCE_SHA=f.sha(self.prefix[0x75b000:0xc5b800]),
                               DIRECTORY_SHA=f.sha(bytes(f.BLOCK)))
 
@@ -235,8 +239,8 @@ class FirmwareTests(unittest.TestCase):
 
     def test_all_supported_install_and_restore_paths(self):
         with self.constants():
-            for index in range(10):
-                for mode, target in [('install', 5), ('restore', 0), ('responsive', 3), ('smooth', 6), ('fast', 7), ('efficient', 9)]:
+            for index in range(11):
+                for mode, target in [('install', 5), ('restore', 0), ('responsive', 3), ('smooth', 6), ('fast', 7), ('efficient', 10), ('drawing_previous', 9)]:
                     with self.subTest(source=index, mode=mode):
                         plan, expected, original = f.plan_for(self.image_prefix(index), mode, self.patches)
                         self.assertEqual(expected, self.image_prefix(target))

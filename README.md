@@ -46,13 +46,15 @@ with the same connection and restart steps.
 
 ## Drawing optimization preview
 
-[Version 0.5.0-preview.2](docs/efficient-drawing.md) combines the optimized pixel-copy
-loops with **17 ms animation updates** (about 59 requested updates per second).
-It keeps Apple's 300 ms slide duration and original CPU policy. Under ideal
-scheduling it draws 18 timed steps instead of 10. Offline comparisons preserve
-pixels and motion; actual displayed FPS and battery effects remain unmeasured.
-The preview is opt-in; the stable download above is unchanged. Use the preview
-release's own standard or restore launcher to undo it.
+[Version 0.5.0-preview.3](docs/menu-start.md) targets the pause before menu movement.
+It uses Apple's existing visible-screen capture path to avoid redrawing the
+outgoing menu, retaining the optimized pixel copies and **17 ms animation
+updates** from preview 2. Apple's 300 ms duration and original CPU policy remain.
+
+Offline replay shows matching pixels with less preparation work. The effect on
+physical press-to-animation delay and battery life remains unmeasured. The preview
+is opt-in; stable downloads above are unchanged. This release includes a direct
+return to preview 2, as well as standard and Apple-restoration launchers.
 
 ## What changed
 

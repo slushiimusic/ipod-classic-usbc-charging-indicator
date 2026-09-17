@@ -33,6 +33,7 @@ jobs:
           ditto -x -k build/release/Install-Drawing-Optimization-Preview-Mac.zip build/extracted-drawing
           test -x build/extracted-drawing/Install-Drawing-Optimization-Preview.command
           build/extracted-drawing/Install-Drawing-Optimization-Preview.command --self-test
+          bash build/release/Restore-Previous-Drawing-Preview.command --self-test
       - name: Check extracted Windows launcher without device access
         if: runner.os == 'Windows'
         shell: cmd
@@ -46,3 +47,5 @@ jobs:
           call build\release\Install-Faster-Menus.cmd --self-test
           if errorlevel 1 exit /b 1
           call build\release\Install-Drawing-Optimization-Preview.cmd --self-test
+          if errorlevel 1 exit /b 1
+          call build\release\Restore-Previous-Drawing-Preview.cmd --self-test

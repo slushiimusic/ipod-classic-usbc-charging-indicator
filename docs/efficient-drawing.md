@@ -1,5 +1,8 @@
 # Drawing optimization preview
 
+For the newer startup-work change and downloads, see [preview 3](menu-start.md).
+This page retains the drawing and cadence evidence for preview 2.
+
 Version **0.5.0-preview.2** combines faster pixel copies with more frequent
 animation updates. Eligible, screen-lit horizontal menu slides request an update
 every **17 ms**, about **58.8 updates per second**, instead of every 30 ms. Apple's
