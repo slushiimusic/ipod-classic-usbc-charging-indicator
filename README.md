@@ -44,6 +44,15 @@ home folder. Keep them. To restore original Apple firmware, use
 or [Restore-Apple-Firmware.cmd](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Restore-Apple-Firmware.cmd)
 with the same connection and restart steps.
 
+## Drawing optimization preview
+
+[Version 0.5.0-preview.1](docs/efficient-drawing.md) replaces two costly pixel-copy
+loops used by menu and image drawing. It keeps Apple's original menu timing and
+CPU policy. Offline comparisons show identical pixels with fewer instructions;
+physical smoothness, slow artwork reads and battery effects remain unverified.
+The preview is opt-in; the stable download above is unchanged. Use the preview
+release's own standard or restore launcher to undo it.
+
 ## What changed
 
 Version **0.4.0** adds the optional [150 ms Faster Menus profile](#faster-menu-slides--new-in-v040).

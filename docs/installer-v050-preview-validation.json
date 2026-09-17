@@ -1,0 +1,384 @@
+{
+  "status": "Exact saved-image plans and launcher packaging verified; no device access",
+  "candidate_sha256": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+  "exact_prefix_paths": 54,
+  "paths": [
+    {
+      "source": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 8
+    },
+    {
+      "source": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 0
+    },
+    {
+      "source": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 9
+    },
+    {
+      "source": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 10
+    },
+    {
+      "source": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 9
+    },
+    {
+      "source": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 9
+    },
+    {
+      "source": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 6
+    },
+    {
+      "source": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 8
+    },
+    {
+      "source": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 7
+    },
+    {
+      "source": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 8
+    },
+    {
+      "source": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 7
+    },
+    {
+      "source": "f8b28791b84c5a36ff240a59636208fe7edbf652eb87967d81564c6e37f2622a",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 7
+    },
+    {
+      "source": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 6
+    },
+    {
+      "source": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 8
+    },
+    {
+      "source": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 5
+    },
+    {
+      "source": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 8
+    },
+    {
+      "source": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 7
+    },
+    {
+      "source": "4322aba038229466ebf6c25116327d38ca76ce7bb98216fc7d6e91753b13a270",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 7
+    },
+    {
+      "source": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 7
+    },
+    {
+      "source": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 9
+    },
+    {
+      "source": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 0
+    },
+    {
+      "source": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 9
+    },
+    {
+      "source": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 8
+    },
+    {
+      "source": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 8
+    },
+    {
+      "source": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 7
+    },
+    {
+      "source": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 9
+    },
+    {
+      "source": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 6
+    },
+    {
+      "source": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 8
+    },
+    {
+      "source": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 8
+    },
+    {
+      "source": "7b882c8985ce5e13f99e47085631d05b888f9086df97bf73a6d6bae364416cf1",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 8
+    },
+    {
+      "source": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 0
+    },
+    {
+      "source": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 8
+    },
+    {
+      "source": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 7
+    },
+    {
+      "source": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 6
+    },
+    {
+      "source": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 5
+    },
+    {
+      "source": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 5
+    },
+    {
+      "source": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 6
+    },
+    {
+      "source": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 10
+    },
+    {
+      "source": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 9
+    },
+    {
+      "source": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 0
+    },
+    {
+      "source": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 7
+    },
+    {
+      "source": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 7
+    },
+    {
+      "source": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 5
+    },
+    {
+      "source": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 9
+    },
+    {
+      "source": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 8
+    },
+    {
+      "source": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 7
+    },
+    {
+      "source": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 0
+    },
+    {
+      "source": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 6
+    },
+    {
+      "source": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "target": "9122a8bd1c99e2be03c29c52425849a86277ddbb778a817b64fed5cb82985ba8",
+      "mode": "install",
+      "sectors": 5
+    },
+    {
+      "source": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "target": "784ae3d5540fd2f89e8c947b93629e97f62a06dc311d9745aab143e4db6bb251",
+      "mode": "restore",
+      "sectors": 9
+    },
+    {
+      "source": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "target": "253fe5b2df1ace5d3c871ef96dcc29d0cb86401a4e107a29c7e9f957be4c38ec",
+      "mode": "responsive",
+      "sectors": 8
+    },
+    {
+      "source": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "target": "c2d63d4b441956fc336fd9f84806f862773c4c1370fa847a0d3d82366853c849",
+      "mode": "smooth",
+      "sectors": 7
+    },
+    {
+      "source": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "target": "13532f5f4312e630384eac74e9a7d17c64d42cf69093f4fe0321d64b7fb8681b",
+      "mode": "fast",
+      "sectors": 6
+    },
+    {
+      "source": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "target": "ab0d616a6b93b6db5dff423b827948a6bc4708384f22adb8d7476ac247a30724",
+      "mode": "efficient",
+      "sectors": 0
+    }
+  ],
+  "assets": [
+    {
+      "name": "Install-Drawing-Optimization-Preview.command",
+      "sha256": "6c5db4cad6b2fe7708618b0024e88d589488ff0319eafce9e0098966801c6870"
+    },
+    {
+      "name": "Install-Faster-Menus.command",
+      "sha256": "133c47b7a6f6cbb271645d67530a47ef408b2f59a14ecb3569eb4671621d778e"
+    },
+    {
+      "name": "Install-Optional-Screen-Boost.command",
+      "sha256": "d1ec88ececaf0ea7a9ba0840f4a567bf415675d69ef8ccd67b8a04d21735dc25"
+    },
+    {
+      "name": "Install-Optional-Smooth-Menus.command",
+      "sha256": "91ed3f6965d2b4117c70e3e7e84e24ec654b464c7ab53098eaf060654d203616"
+    },
+    {
+      "name": "Install-iPod-USB-C.command",
+      "sha256": "c3abebb048d85171dae87a8fb68992a9ddb5d00ec3e49951f6ce9f16bafd538c"
+    },
+    {
+      "name": "Restore-Apple-Firmware.command",
+      "sha256": "dbfbe0b958b32db3f40cb207af28eb95d3bee703ccb7e0d6a0b1e82eda6b7e86"
+    },
+    {
+      "name": "Install-Drawing-Optimization-Preview.cmd",
+      "sha256": "5227ace0a497500881431b2c95ab7883b9a0d66d844cecf1dc03a4940ccd0343"
+    },
+    {
+      "name": "Install-Faster-Menus.cmd",
+      "sha256": "488759c679c40a895f3b1841412c9e0fc1b2496241aa819d6c7580445ba62eb9"
+    },
+    {
+      "name": "Install-Optional-Screen-Boost.cmd",
+      "sha256": "373ef6da94dd1d9084753c668c9808acaf09c49ed3c7378436ed3ada6a5f54be"
+    },
+    {
+      "name": "Install-Optional-Smooth-Menus.cmd",
+      "sha256": "7b44b35506b3be0525463d39957da049890a9f7f70fa1d3ac8c8a6e431a6029d"
+    },
+    {
+      "name": "Install-iPod-USB-C.cmd",
+      "sha256": "5394ca0b011fc6e3a7737f23637e291f36010093e2b17e04f9f4d309501cfa95"
+    },
+    {
+      "name": "Restore-Apple-Firmware.cmd",
+      "sha256": "11bd1aec2d187884e0b4b4f81c4978905bfbe787026e1dfceb1b672c4ed749ab"
+    }
+  ],
+  "device_access": false,
+  "physical_installation_verified": false,
+  "physical_performance_verified": false
+}
