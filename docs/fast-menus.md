@@ -1,5 +1,15 @@
 # Faster menu slides
 
+**Status: choppy transitions reported; not recommended as a smoothness fix.**
+After a verified v0.4.0 installation, the user reported that some slides
+appeared to contain about three frames, specifically Music → Artists, and
+that some album artwork took a long time to load. Installation and isolated
+routine checks did not establish improved physical performance.
+
+Use the standard v0.4.0 installer to restore Apple's original menu code and CPU
+policy while keeping the v4 charging correction. This removes the shorter
+slide experiment; it is not a fix for artwork loading.
+
 The Faster Menus profile changes the identified horizontal menu slide from
 **300 ms to 150 ms**. It retains Apple's easing curve and cached-image drawing.
 It requests a position update every 15 ms, giving ten timed updates under an
@@ -15,6 +25,30 @@ its user. This new profile deliberately shortens the transition. **Actual
 visible completion time, smoothness and battery use remain unmeasured.** Drawing
 and event delays can make completion later than 150 ms. Equal ideal update
 counts do not prove equal energy use.
+
+## Delayed-frame follow-up
+
+Apple's native slide position advances using elapsed time. A delayed callback
+therefore skips a larger fraction of a shorter slide. Replaying the saved
+native routines with a synthetic 50 ms delivery interval produces three timed
+updates in the 150 ms profile and six in the original 300 ms profile, in both
+directions. This reproduces a similar *pattern*, not the measured iPod frame
+timing. Display delivery, menu construction, storage and artwork loading are
+not simulated by that check; the physical cause remains unresolved.
+
+A read-only check of the connected library found complete artist-index entry
+coverage and no missing artwork links or out-of-bounds thumbnail references
+in the interpreted metadata. The thumbnail records use the Video's 100×100
+and 200×200 formats, as listed in
+[libgpod's Video artwork table](https://github.com/fadingred/libgpod/blob/master/src/itdb_device.c).
+Some newer metadata fields were only bounds-checked.
+This does not prove filesystem health, correct image contents or fast device
+reads, and no library rewrite or artwork deletion was performed. Private
+library data is not distributed.
+
+There is no demonstrated low-power fix for the loading stalls in this release.
+Do not interpret a shorter requested duration, a higher requested update rate,
+or a successfully written firmware image as smoother rendering.
 
 ## Firmware scope
 

@@ -47,6 +47,10 @@ with the same connection and restart steps.
 ## What changed
 
 Version **0.4.0** adds the optional [150 ms Faster Menus profile](#faster-menu-slides--new-in-v040).
+**Follow-up: this profile has a physical report of choppy menu transitions,
+especially Music → Artists, and is not recommended as a smoothness improvement.**
+Use the standard download above to restore Apple's menu timing while keeping
+the charging correction. Slow artwork loading remains unresolved.
 The standard charging profile is unchanged from v0.3.0.
 
 Version **0.3.0** adds a narrow screen-on correction to reconnect-v3. A fresh,
@@ -101,6 +105,11 @@ underclock or overclock in it. The additional polling's battery cost is unmeasur
 
 ### Faster menu slides — new in v0.4.0
 
+**Reported regression:** after a verified installation, some menus appeared
+to animate in only about three steps. Music → Artists was specifically
+identified, along with slow album artwork loading. Use the standard installer
+to remove this optional timing change; a faster, smoother result is not established.
+
 [Mac faster menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Faster-Menus-Mac.zip) ·
 [Windows faster menus](https://github.com/slushiimusic/ipod-classic-usbc-charging-indicator/releases/latest/download/Install-Faster-Menus.cmd)
 
@@ -110,7 +119,11 @@ per slide, the same ideal count as stock, using a 15 ms interval. It includes
 v4 charging and replaces the previous smooth-menu helper or CPU boost.
 
 Offline checks show the original slide completing in half the time in both
-directions. **Physical latency, smoothness and battery impact are unmeasured.**
+directions under simulated scheduling. With callbacks delivered every 50 ms,
+the same model produces only three timed updates over 150 ms, versus six over
+the original 300 ms. That illustrates why shortening can worsen choppiness;
+50 ms is not a measured device interval or a diagnosis of the loading delay.
+**Physical latency, frame delivery and battery impact are unmeasured.**
 No background timer or CPU boost is added. It does not fix USB-C wake from
 sleep. See [implementation and checks](docs/fast-menus.md).
 
